@@ -5,6 +5,8 @@
  */
 package a2z;
 
+import java.awt.Color;
+
 /**
  *
  * @author marek
@@ -16,6 +18,28 @@ public class Index extends javax.swing.JFrame {
      */
     public Index() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.setTitle("A2Z Game");
+        this.getContentPane().setBackground(Color.decode("#1f2029"));
+
+        jLabel1.setForeground(Color.decode("#fafafa"));
+        jLabel2.setForeground(Color.decode("#fafafa"));
+        jLabel3.setForeground(Color.decode("#fafafa"));  
+        
+        jLabel4.setForeground(Color.decode("#fafafa"));
+        jLabel5.setForeground(Color.decode("#fafafa"));
+        jLabel6.setForeground(Color.decode("#fafafa"));  
+        
+        jLabel7.setForeground(Color.decode("#fafafa"));
+        jLabel8.setForeground(Color.decode("#fafafa"));
+        jLabelLogin.setForeground(Color.decode("#fafafa"));
+        
+
+        jButtonIniciarse.setForeground(Color.BLACK);
+        jButtonIniciarse.setBackground(Color.WHITE);
+
+        jButtonRegister_go.setForeground(Color.BLACK);
+        jButtonRegister_go.setBackground(Color.WHITE);
     }
 
     /**
@@ -79,19 +103,23 @@ public class Index extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(146, 146, 146)
                 .addComponent(jLabelLogin)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 179, Short.MAX_VALUE)
-                .addComponent(jLabel8)
-                .addGap(130, 130, 130)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(161, 161, 161))
+                .addGap(131, 131, 131))
             .addGroup(layout.createSequentialGroup()
-                .addGap(93, 93, 93)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel3)
-                    .addComponent(jTextFieldLogin_usuario)
-                    .addComponent(jPasswordFieldLogin_clave, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
-                    .addComponent(jLabel2))
-                .addGap(228, 228, 228)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(93, 93, 93)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel3)
+                            .addComponent(jTextFieldLogin_usuario)
+                            .addComponent(jPasswordFieldLogin_clave, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
+                            .addComponent(jLabel2))
+                        .addGap(228, 228, 228))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel8)
+                        .addGap(110, 110, 110)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel4)
                     .addComponent(jLabel5)
@@ -102,7 +130,7 @@ public class Index extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
                         .addComponent(jLabel7))
                     .addComponent(jTextFieldRegister_fecha))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(83, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(155, 155, 155)
                 .addComponent(jButtonIniciarse)
@@ -116,8 +144,7 @@ public class Index extends javax.swing.JFrame {
                 .addGap(53, 53, 53)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelLogin)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel8))
+                    .addComponent(jLabel1))
                 .addGap(47, 47, 47)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -127,7 +154,9 @@ public class Index extends javax.swing.JFrame {
                     .addComponent(jTextFieldLogin_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldRegister_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jLabel5)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
