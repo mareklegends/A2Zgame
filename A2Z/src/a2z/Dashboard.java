@@ -63,13 +63,25 @@ public class Dashboard extends javax.swing.JFrame {
         jLabelnombreusuario.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabelnombreusuario.setText("NombreUsuario");
 
+        jProgressBarNivel.setValue(26);
+
         jLabelPuntos.setText("Nivel: 0");
 
         jButton1.setText("J U G A R");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("¿Como jugar?");
 
         jButton3.setText("SALIR");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jLabelVidas.setText("Vidas: 10");
 
@@ -126,6 +138,18 @@ public class Dashboard extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        Ruleta r = new Ruleta();
+        r.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
