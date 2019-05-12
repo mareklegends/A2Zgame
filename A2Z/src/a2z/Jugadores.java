@@ -13,6 +13,7 @@ import java.util.Date;
  */
 public final class Jugadores extends Usuarios{
     private int puntos;
+    private int vidas;
 
     public Jugadores(int puntos, int coduser, String nombre, Date fecha) {
         super(coduser, nombre, fecha);

@@ -24,16 +24,15 @@ public class Index extends javax.swing.JFrame {
 
         jLabel1.setForeground(Color.decode("#fafafa"));
         jLabel2.setForeground(Color.decode("#fafafa"));
-        jLabel3.setForeground(Color.decode("#fafafa"));  
-        
+        jLabel3.setForeground(Color.decode("#fafafa"));
+
         jLabel4.setForeground(Color.decode("#fafafa"));
         jLabel5.setForeground(Color.decode("#fafafa"));
-        jLabel6.setForeground(Color.decode("#fafafa"));  
-        
+        jLabel6.setForeground(Color.decode("#fafafa"));
+
         jLabel7.setForeground(Color.decode("#fafafa"));
         jLabel8.setForeground(Color.decode("#fafafa"));
         jLabelLogin.setForeground(Color.decode("#fafafa"));
-        
 
         jButtonIniciarse.setForeground(Color.BLACK);
         jButtonIniciarse.setBackground(Color.WHITE);
@@ -79,6 +78,11 @@ public class Index extends javax.swing.JFrame {
         jPasswordFieldLogin_clave.setText("jPasswordField1");
 
         jButtonIniciarse.setText("GO");
+        jButtonIniciarse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonIniciarseActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("User");
 
@@ -196,6 +200,14 @@ public class Index extends javax.swing.JFrame {
     private void jTextFieldRegister_fechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldRegister_fechaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldRegister_fechaActionPerformed
+
+    private void jButtonIniciarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIniciarseActionPerformed
+        // TODO add your handling code here:
+
+        Dashboard d = new Dashboard();
+        d.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButtonIniciarseActionPerformed
 
     /**
      * @param args the command line arguments
