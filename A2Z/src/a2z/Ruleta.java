@@ -39,6 +39,11 @@ public class Ruleta extends javax.swing.JFrame {
         jButtonJugar.setText("Jugar");
 
         jButtonAtras.setText("Ir atras");
+        jButtonAtras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAtrasActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setText("-Calculadon la categoria-");
@@ -76,6 +81,13 @@ public class Ruleta extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAtrasActionPerformed
+        // TODO add your handling code here:
+        Dashboard d = new Dashboard();
+        d.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButtonAtrasActionPerformed
 
     /**
      * @param args the command line arguments
