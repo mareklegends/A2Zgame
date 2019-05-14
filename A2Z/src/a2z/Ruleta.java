@@ -5,18 +5,43 @@
  */
 package a2z;
 
+import javax.swing.JOptionPane;
+import javax.swing.Timer;
+
 /**
  *
  * @author marek
  */
-public class Ruleta extends javax.swing.JFrame {
+
+
+
+public final class Ruleta extends javax.swing.JFrame {
+    
+    public void generarcategoria(){
+        System.out.println("Hola");
+    }
 
     /**
      * Creates new form Ruleta
      */
     public Ruleta() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.setTitle("A2Z Game");
+        
+        jLabel2.setText("-Calculadon la categoria-");
+        
+        Timer t;
+        t = new Timer(250, (e) -> {
+            System.out.println("Terminado");      
+               jLabel2.setText("Deportes");
+        });
+        t.start();
+        
+        
+       
     }
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
