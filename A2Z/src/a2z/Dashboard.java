@@ -21,7 +21,7 @@ public class Dashboard extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setTitle("A2Z Game");
         this.getContentPane().setBackground(Color.decode("#1f2029"));
-        jLabelVidas.setForeground(Color.decode("#fafafa"));
+       
         jLabelPuntos.setForeground(Color.decode("#fafafa"));
         jLabelnombreusuario.setForeground(Color.decode("#fafafa"));
         jProgressBarNivel.setBorderPainted(true);
@@ -91,6 +91,7 @@ public class Dashboard extends javax.swing.JFrame {
         });
 
         jLabelVidas.setText("Vidas: 10");
+        jLabelVidas.setForeground(Color.decode("#fafafa"));
 
         jButtonvertop.setText("Ver TOP");
         jButtonvertop.addActionListener(new java.awt.event.ActionListener() {

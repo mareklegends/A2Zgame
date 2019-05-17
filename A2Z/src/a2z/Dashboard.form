@@ -137,6 +137,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Vidas: 10"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jLabelVidas.setForeground(Color.decode(&quot;#fafafa&quot;));"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="jButtonvertop">
       <Properties>

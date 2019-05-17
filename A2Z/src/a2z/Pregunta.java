@@ -39,32 +39,34 @@ public class Pregunta extends javax.swing.JFrame {
         jTextArea1.setLineWrap(true);
         jTextArea1.setEditable(false);
         jTextArea1.setText("¿Por qué razón “separado” se escribe todo junto y “todo junto” se escribe separado?");
-
-        
     }
 
     private void tiempo() {
-        boolean bandera = true;
-
-        while (bandera == true) {
-
+        boolean bandera = false;
+        int tiempo = 0;
+        while (!bandera) {
             if (jProgressBar1.getValue() == 1200) {
-                bandera = false;
+                bandera = true;  
                 Dashboard d2 = new Dashboard();
                 d2.setVisible(true);
                 this.dispose();
             } else {
-                bandera = true;
                 dormir();
+                tiempo+=5;
+                tiemposuma(tiempo);
+                System.out.println(tiempo);
             }
         }
+        
     }
 
+    private void tiemposuma(int tiempo){
+        jProgressBar1.setValue(tiempo);
+    }
+    
     private void dormir() {
         try {
             Thread.sleep(80);
-            int tiempo = 0;
-            jProgressBar1.setValue(tiempo + 5);
         } catch (InterruptedException ex) {
             Logger.getLogger(Ruleta.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -89,6 +91,11 @@ public class Pregunta extends javax.swing.JFrame {
         jTextArea1 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         jButtonRespuesta1.setText("Respuesta 1");
 
@@ -145,6 +152,10 @@ public class Pregunta extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+       tiempo();
+    }//GEN-LAST:event_formWindowActivated
 
     /**
      * @param args the command line arguments
