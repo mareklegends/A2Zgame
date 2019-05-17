@@ -40,6 +40,7 @@ public class Pregunta extends javax.swing.JFrame {
         jTextArea1.setEditable(false);
         jTextArea1.setText("¿Por qué razón “separado” se escribe todo junto y “todo junto” se escribe separado?");
 
+        
     }
 
     private void tiempo() {
