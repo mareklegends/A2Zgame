@@ -76,6 +76,11 @@ public final class Ruleta extends javax.swing.JFrame {
         jLabel1.setText("-Aqui van los nombres de la categorias-");
 
         jButtonJugar.setText("Jugar");
+        jButtonJugar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonJugarActionPerformed(evt);
+            }
+        });
 
         jButtonAtras.setText("Ir atras");
         jButtonAtras.addActionListener(new java.awt.event.ActionListener() {
@@ -142,6 +147,14 @@ public final class Ruleta extends javax.swing.JFrame {
         dormir();
         jLabel2.setText("Deportes");
     }//GEN-LAST:event_formWindowActivated
+
+    private void jButtonJugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonJugarActionPerformed
+        // TODO add your handling code here:
+        
+         Pregunta p = new Pregunta();
+        p.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButtonJugarActionPerformed
 
     /**
      * @param args the command line arguments
