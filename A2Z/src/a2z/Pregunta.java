@@ -167,6 +167,8 @@ public class Pregunta extends javax.swing.JFrame {
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
        // tiempo();
+       
+       
     }//GEN-LAST:event_formWindowActivated
 
     /**
