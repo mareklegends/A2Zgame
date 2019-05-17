@@ -21,7 +21,7 @@ public class Dashboard extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setTitle("A2Z Game");
         this.getContentPane().setBackground(Color.decode("#1f2029"));
-          jLabelVidas.setForeground(Color.decode("#fafafa"));
+        jLabelVidas.setForeground(Color.decode("#fafafa"));
         jLabelPuntos.setForeground(Color.decode("#fafafa"));
         jLabelnombreusuario.setForeground(Color.decode("#fafafa"));
         jProgressBarNivel.setBorderPainted(true);
@@ -29,6 +29,10 @@ public class Dashboard extends javax.swing.JFrame {
         
         jButton1.setForeground(Color.BLACK);
         jButton1.setBackground(Color.WHITE);
+        
+        
+        jButtonvertop.setForeground(Color.BLACK);
+        jButtonvertop.setBackground(Color.WHITE);
         
         jButton2.setForeground(Color.BLACK);
         jButton2.setBackground(Color.WHITE);
@@ -55,12 +59,14 @@ public class Dashboard extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jLabelVidas = new javax.swing.JLabel();
+        jButtonvertop = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/a2z/icons8-usuario-100.png"))); // NOI18N
 
         jLabelnombreusuario.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabelnombreusuario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelnombreusuario.setText("NombreUsuario");
 
         jProgressBarNivel.setValue(26);
@@ -68,6 +74,7 @@ public class Dashboard extends javax.swing.JFrame {
         jLabelPuntos.setText("Nivel: 0");
 
         jButton1.setText("J U G A R");
+        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -85,6 +92,13 @@ public class Dashboard extends javax.swing.JFrame {
 
         jLabelVidas.setText("Vidas: 10");
 
+        jButtonvertop.setText("Ver TOP");
+        jButtonvertop.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonvertopActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -95,22 +109,23 @@ public class Dashboard extends javax.swing.JFrame {
                         .addGap(134, 134, 134)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(58, 58, 58)
-                        .addComponent(jButton2)
-                        .addGap(57, 57, 57)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(111, 111, 111)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelnombreusuario, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabelPuntos)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabelVidas))
-                                .addComponent(jProgressBarNivel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(52, Short.MAX_VALUE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jButton3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButtonvertop, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(80, 80, 80)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabelVidas)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabelPuntos))
+                            .addComponent(jProgressBarNivel, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(69, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -123,15 +138,17 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelPuntos)
                     .addComponent(jLabelVidas))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jProgressBarNivel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46)
+                .addGap(41, 41, 41)
                 .addComponent(jButton1)
-                .addGap(48, 48, 48)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
-                .addContainerGap(77, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton2)
+                .addGap(14, 14, 14)
+                .addComponent(jButtonvertop)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton3)
+                .addContainerGap(43, Short.MAX_VALUE))
         );
 
         pack();
@@ -148,6 +165,13 @@ public class Dashboard extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButtonvertopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonvertopActionPerformed
+        // TODO add your handling code here:
+        Top t = new Top();
+        t.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButtonvertopActionPerformed
 
     /**
      * @param args the command line arguments
@@ -188,6 +212,7 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButtonvertop;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelPuntos;
     private javax.swing.JLabel jLabelVidas;
