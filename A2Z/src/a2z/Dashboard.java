@@ -6,6 +6,8 @@
 package a2z;
 
 import java.awt.Color;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -13,35 +15,95 @@ import java.awt.Color;
  */
 public class Dashboard extends javax.swing.JFrame {
 
-     int iduser=2;
-    
+    ArrayList<Jugadores> vJugadorInfo = null;
+    int iduser = 2;
+    int vidas = 0;
+    int puntos = 0;
+
     /**
      * Creates new form Dashboard
      */
     public Dashboard() {
         initComponents();
+
         this.setLocationRelativeTo(null);
         this.setTitle("A2Z Game");
         this.getContentPane().setBackground(Color.decode("#1f2029"));
-       
+
         jLabelPuntos.setForeground(Color.decode("#fafafa"));
         jLabelnombreusuario.setForeground(Color.decode("#fafafa"));
         jProgressBarNivel.setBorderPainted(true);
         jProgressBarNivel.setBackground(Color.yellow);
-        
+
         jButton1.setForeground(Color.BLACK);
         jButton1.setBackground(Color.WHITE);
-        
-        
+
         jButtonvertop.setForeground(Color.BLACK);
         jButtonvertop.setBackground(Color.WHITE);
-        
+
         jButton2.setForeground(Color.BLACK);
         jButton2.setBackground(Color.WHITE);
-        
+
         jButton3.setForeground(Color.BLACK);
         jButton3.setBackground(Color.WHITE);
-        
+
+        vJugadorInfo = bd.conexiones.jugadorInfo(iduser);
+
+        for (int i = 0; i < vJugadorInfo.size(); i++) {
+            jLabelnombreusuario.setText(vJugadorInfo.get(i).getNombre().toUpperCase());
+            jLabelVidas.setText("Vidas: " + String.valueOf(vJugadorInfo.get(i).getVidas()));
+            vidas = vJugadorInfo.get(i).getVidas();
+            puntos = vJugadorInfo.get(i).getPuntos();
+            break;
+        }
+
+        if (puntos < 1000) {
+            jProgressBarNivel.setMaximum(1000);
+            jProgressBarNivel.setMinimum(0);
+            jProgressBarNivel.setValue(puntos);
+            jLabelPuntos.setText("Nivel: 0");
+        } else if (puntos >= 1000) {
+            jProgressBarNivel.setMaximum(2000);
+            jProgressBarNivel.setMinimum(1000);
+            jProgressBarNivel.setValue(puntos);
+            jLabelPuntos.setText("Nivel: 1");
+        } else if (puntos >= 2000) {
+            jProgressBarNivel.setMaximum(3000);
+            jProgressBarNivel.setMinimum(2000);
+            jProgressBarNivel.setValue(puntos);
+            jLabelPuntos.setText("Nivel: 2");
+        } else if (puntos >= 3000) {
+            jProgressBarNivel.setMaximum(4000);
+            jProgressBarNivel.setMinimum(3000);
+            jProgressBarNivel.setValue(puntos);
+            jLabelPuntos.setText("Nivel: 3");
+        } else if (puntos >= 4000) {
+            jProgressBarNivel.setMaximum(5000);
+            jProgressBarNivel.setMinimum(6000);
+            jProgressBarNivel.setValue(puntos);
+            jLabelPuntos.setText("Nivel: 4");
+        } else if (puntos >= 5000) {
+            jProgressBarNivel.setMaximum(7000);
+            jProgressBarNivel.setMinimum(6000);
+            jProgressBarNivel.setValue(puntos);
+            jLabelPuntos.setText("Nivel: 5");
+        } else if (puntos >= 6000) {
+            jProgressBarNivel.setMaximum(7000);
+            jProgressBarNivel.setMinimum(6000);
+            jProgressBarNivel.setValue(puntos);
+            jLabelPuntos.setText("Nivel: 6");
+        } else if (puntos >= 7000) {
+            jProgressBarNivel.setMaximum(8000);
+            jProgressBarNivel.setMinimum(7000);
+            jProgressBarNivel.setValue(puntos);
+            jLabelPuntos.setText("Nivel: 7");
+        } else if (puntos >= 8000) {
+            jProgressBarNivel.setMaximum(9000);
+            jProgressBarNivel.setMinimum(8000);
+            jProgressBarNivel.setValue(puntos);
+            jLabelPuntos.setText("Nivel: 8");
+        }
+
     }
 
     /**
@@ -159,9 +221,16 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        Ruleta r = new Ruleta(iduser);
-        r.setVisible(true);
-        this.dispose();
+
+        if (vidas == 0) {
+            JOptionPane.showMessageDialog(null, "No tienes vidas para poder jugar");
+        } else {
+            Ruleta r = new Ruleta(iduser);
+            r.setVisible(true);
+            this.dispose();
+        }
+
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

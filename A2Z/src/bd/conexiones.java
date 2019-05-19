@@ -34,7 +34,55 @@ public class conexiones {
         return fechaDate;
     }
     
-    public static ArrayList<Jugadores>  topJugadores(){
+       
+         public static ArrayList<Jugadores> jugadorInfo(int cod_usuario){
+        ArrayList<Jugadores> vJugadorInfo = new ArrayList();
+        Jugadores j2 = null;
+        
+        Connection conn = null;
+        try {
+            // db parameters
+            String url = "jdbc:mysql://localhost:3306/basesproyectojava";
+            String user = "root";
+            String password = "";
+
+            // create a connection to the database
+            conn = (Connection) DriverManager.getConnection(url, user, password);
+            // more processing here
+
+         
+             PreparedStatement ps3 = (PreparedStatement) conn.prepareStatement("SELECT * FROM usuarios WHERE admin=0 AND codusuarios=?");
+              ps3.setInt(1, cod_usuario);
+         
+         ResultSet rs = ps3.executeQuery();
+            
+            while (rs.next()) {
+                j2 = new Jugadores(rs.getInt(5), rs.getInt(6), rs.getInt(1), rs.getString(2), ParseFecha(rs.getString(4)));
+                
+                vJugadorInfo.add(j2);
+                
+            }
+
+            // ... 
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            try {
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
+        
+        
+        return vJugadorInfo;
+    }
+       
+       
+       
+    public static ArrayList<Jugadores> topJugadores(){
         ArrayList<Jugadores> vJugadoresNOADMIN = new ArrayList();
         Jugadores j = null;
         
@@ -54,7 +102,7 @@ public class conexiones {
             ResultSet rs = ps.executeQuery(sql);
             
             while (rs.next()) {
-                j = new Jugadores(rs.getInt(5), rs.getInt(1), rs.getString(2), ParseFecha(rs.getString(4)));
+                j = new Jugadores(rs.getInt(5), rs.getInt(6), rs.getInt(1), rs.getString(2), ParseFecha(rs.getString(4)));
                 
                 vJugadoresNOADMIN.add(j);
                 

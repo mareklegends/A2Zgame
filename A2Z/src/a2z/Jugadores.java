@@ -15,9 +15,10 @@ public final class Jugadores extends Usuarios{
     private int puntos;
     private int vidas;
 
-    public Jugadores(int puntos, int coduser, String nombre, Date fecha) {
+    public Jugadores(int puntos, int vidas, int coduser, String nombre, Date fecha) {
         super(coduser, nombre, fecha);
         this.puntos = puntos;
+        this.vidas = vidas;
     }
 
     public int getPuntos() {
@@ -27,6 +28,16 @@ public final class Jugadores extends Usuarios{
     public void setPuntos(int puntos) {
         this.puntos = puntos;
     }
+
+    public int getVidas() {
+        return vidas;
+    }
+
+    public void setVidas(int vidas) {
+        this.vidas = vidas;
+    }
+
+    
     
     
 
