@@ -6,9 +6,11 @@
 package a2z;
 
 import java.awt.Color;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.BorderFactory;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -16,7 +18,10 @@ import javax.swing.BorderFactory;
  */
 public class Pregunta extends javax.swing.JFrame {
 
-    int iduser=0;
+    ArrayList<Preguntas> vPregunta = null;
+    int npreguntabuena = 0;
+    int iduser = 0;
+
     /**
      * Creates new form Pregunta
      */
@@ -44,8 +49,20 @@ public class Pregunta extends javax.swing.JFrame {
     }
 
     Pregunta(int id_user, String ncategoria) {
-          initComponents();
-          iduser = id_user;
+        initComponents();
+        iduser = id_user;
+
+        vPregunta = bd.conexiones.jugarPregunta(id_user, ncategoria);
+
+        for (int i = 0; i < vPregunta.size(); i++) {
+            jTextArea1.setText(vPregunta.get(i).getPregunta());
+            jButtonRespuesta1.setText(vPregunta.get(i).getP1());
+            jButtonRespuesta2.setText(vPregunta.get(i).getP2());
+            jButtonRespuesta3.setText(vPregunta.get(i).getP3());
+            npreguntabuena = vPregunta.get(i).getPbuena();
+            break;
+        }
+
         this.setLocationRelativeTo(null);
         this.setTitle("A2Z Game");
         this.getContentPane().setBackground(Color.decode("#1f2029"));
@@ -64,10 +81,9 @@ public class Pregunta extends javax.swing.JFrame {
         jTextArea1.setLineWrap(true);
         jTextArea1.setEditable(false);
         jLabelnt.setText("n");
-        jTextArea1.setText("¿Por qué razón “separado” se escribe todo junto y “todo junto” se escribe separado?");
+        
+     
     }
-
-   
 
     /*
     public void tiempo() {
@@ -103,7 +119,7 @@ public class Pregunta extends javax.swing.JFrame {
             Logger.getLogger(Ruleta.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-*/
+     */
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -131,14 +147,29 @@ public class Pregunta extends javax.swing.JFrame {
         });
 
         jButtonRespuesta1.setText("Respuesta 1");
+        jButtonRespuesta1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRespuesta1ActionPerformed(evt);
+            }
+        });
 
         jButtonRespuesta2.setText("Respuesta 2");
+        jButtonRespuesta2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRespuesta2ActionPerformed(evt);
+            }
+        });
 
         jProgressBar1.setMaximum(1200);
 
         jLabel2.setText("Tiempo");
 
         jButtonRespuesta3.setText("Respuesta 3");
+        jButtonRespuesta3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRespuesta3ActionPerformed(evt);
+            }
+        });
 
         jTextArea1.setColumns(20);
         jTextArea1.setFont(new java.awt.Font("Monospaced", 0, 16)); // NOI18N
@@ -193,10 +224,41 @@ public class Pregunta extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-       // tiempo();
-       
-       
+        // tiempo();
+
+
     }//GEN-LAST:event_formWindowActivated
+
+    private void jButtonRespuesta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRespuesta1ActionPerformed
+        // TODO add your handling code here:
+        if (npreguntabuena==1) {            
+             JOptionPane.showMessageDialog(null, "Pregunta correcta");
+        } else {
+             JOptionPane.showMessageDialog(null, "Pregunta fallida");
+        }
+         
+        
+    }//GEN-LAST:event_jButtonRespuesta1ActionPerformed
+
+    private void jButtonRespuesta2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRespuesta2ActionPerformed
+        // TODO add your handling code here:
+          if (npreguntabuena==2) {            
+             JOptionPane.showMessageDialog(null, "Pregunta correcta");
+        } else {
+             JOptionPane.showMessageDialog(null, "Pregunta fallida");
+        }
+         
+    }//GEN-LAST:event_jButtonRespuesta2ActionPerformed
+
+    private void jButtonRespuesta3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRespuesta3ActionPerformed
+        // TODO add your handling code here:
+          if (npreguntabuena==3) {            
+             JOptionPane.showMessageDialog(null, "Pregunta correcta");
+        } else {
+             JOptionPane.showMessageDialog(null, "Pregunta fallida");
+        }
+         
+    }//GEN-LAST:event_jButtonRespuesta3ActionPerformed
 
     /**
      * @param args the command line arguments

@@ -134,8 +134,8 @@ public class conexiones {
             conn = (Connection) DriverManager.getConnection(url, user, password);
             // more processing here
 
-         PreparedStatement ps2 = (PreparedStatement) conn.prepareStatement("SELECT preguntas.codpreguntas preguntas.pregunta, preguntas.r1, preguntas.r2, preguntas.r3, preguntas.rbuena, categorias.nombre from categorias, pok, preguntas, usuarios WHERE usuarios.codusuarios=pok.pokuser and pok.pokpregunta=preguntas.codpreguntas and preguntas.codcat=categorias.codcategorias and categorias.nombre like ? and categorias.codcategorias not in (SELECT pok.pokpregunta FROM pok WHERE pok.pokuser=?)");
-         ps2.setString(1, cat);
+         PreparedStatement ps2 = (PreparedStatement) conn.prepareStatement("SELECT preguntas.codpreguntas, preguntas.pregunta, preguntas.r1, preguntas.r2, preguntas.r3, preguntas.rbuena, categorias.nombre FROM preguntas, categorias WHERE preguntas.codcat=categorias.codcategorias and preguntas.codpreguntas NOT IN (SELECT pok.pokpregunta FROM pok where pok.pokuser=?) AND preguntas.codcat=(SELECT categorias.codcategorias FROM categorias WHERE categorias.nombre LIKE ?)");
+         ps2.setString(2, cat);
          ps2.setInt(1, usario);
          
          ResultSet rs = ps2.executeQuery();
