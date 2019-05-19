@@ -6,6 +6,7 @@
 package a2z;
 
 import java.awt.Color;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -49,9 +50,19 @@ public class Admin extends javax.swing.JFrame {
         jLabel1.setText("AdminPanel a2z");
 
         jMenu1.setText("Nº Usuarios");
+        jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu1MouseClicked(evt);
+            }
+        });
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Nº Preguntas");
+        jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu2MouseClicked(evt);
+            }
+        });
         jMenuBar1.add(jMenu2);
 
         jMenu3.setText("Añadir Preguntas");
@@ -65,6 +76,11 @@ public class Admin extends javax.swing.JFrame {
         jMenuBar1.add(jMenu3);
 
         jMenu4.setText("Ayuda");
+        jMenu4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu4MouseClicked(evt);
+            }
+        });
         jMenuBar1.add(jMenu4);
 
         jMenu5.setText("Salir");
@@ -111,6 +127,25 @@ public class Admin extends javax.swing.JFrame {
         // TODO add your handling code here:
            this.dispose();
     }//GEN-LAST:event_jMenu5MouseClicked
+
+    private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
+        // TODO add your handling code here:
+        int totaln =0;
+        String datos = "Total de usuarios "+totaln;
+        JOptionPane.showMessageDialog(null, datos);
+    }//GEN-LAST:event_jMenu1MouseClicked
+
+    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
+        // TODO add your handling code here:
+         int totaln =0;
+        String datos = "Total de preguntas "+totaln;
+        JOptionPane.showMessageDialog(null, datos);
+    }//GEN-LAST:event_jMenu2MouseClicked
+
+    private void jMenu4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu4MouseClicked
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "A2Z esta en la versión: 1.0");
+    }//GEN-LAST:event_jMenu4MouseClicked
 
     /**
      * @param args the command line arguments
