@@ -65,7 +65,7 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jLabelnombreusuario" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabelPuntos" alignment="1" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabelVidas" alignment="1" min="-2" max="-2" attributes="0"/>
               </Group>

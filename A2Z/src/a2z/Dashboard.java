@@ -13,6 +13,8 @@ import java.awt.Color;
  */
 public class Dashboard extends javax.swing.JFrame {
 
+     int iduser=2;
+    
     /**
      * Creates new form Dashboard
      */
@@ -136,9 +138,9 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabelnombreusuario)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelPuntos)
-                    .addComponent(jLabelVidas))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelPuntos, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabelVidas, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jProgressBarNivel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41)
@@ -157,7 +159,7 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        Ruleta r = new Ruleta();
+        Ruleta r = new Ruleta(iduser);
         r.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed

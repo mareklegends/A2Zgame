@@ -15,7 +15,7 @@ public class Juego {
 
     public Juego(Usuarios u, Preguntas p) {
         this.u = new Usuarios(u.getCoduser(), u.getNombre(), u.getFecha());
-        this.p = new Preguntas(p.getCodpregunta(), p.getP1(), p.getP2(), p.getP3(), p.getPbuena(), p.getCat());
+        this.p = new Preguntas(p.getCodpregunta(), p.getPregunta(), p.getP1(), p.getP2(), p.getP3(), p.getPbuena(), p.getCat());
     }
 
     public Usuarios getU() {
@@ -27,11 +27,11 @@ public class Juego {
     }
 
     public Preguntas getP() {
-        return new Preguntas(p.getCodpregunta(), p.getP1(), p.getP2(), p.getP3(), p.getPbuena(), p.getCat());
+        return new Preguntas(p.getCodpregunta(),  p.getPregunta(), p.getP1(), p.getP2(), p.getP3(), p.getPbuena(), p.getCat());
     }
 
     public void setP(Preguntas p) {
-        this.p = new Preguntas(p.getCodpregunta(), p.getP1(), p.getP2(), p.getP3(), p.getPbuena(), p.getCat());;
+        this.p = new Preguntas(p.getCodpregunta(),  p.getPregunta(), p.getP1(), p.getP2(), p.getP3(), p.getPbuena(), p.getCat());;
     }
     
     

@@ -11,14 +11,16 @@ package a2z;
  */
 public class Preguntas {
     private int codpregunta;
+    private String pregunta;
     private String p1;
     private String p2;
     private String p3;
     private int pbuena;
     private String cat;
 
-    public Preguntas(int codpregunta, String p1, String p2, String p3, int pbuena, String cat) {
+    public Preguntas(int codpregunta, String pregunta, String p1, String p2, String p3, int pbuena, String cat) {
         this.codpregunta = codpregunta;
+        this.pregunta = pregunta;
         this.p1 = p1;
         this.p2 = p2;
         this.p3 = p3;
@@ -32,6 +34,14 @@ public class Preguntas {
 
     public void setCodpregunta(int codpregunta) {
         this.codpregunta = codpregunta;
+    }
+
+    public String getPregunta() {
+        return pregunta;
+    }
+
+    public void setPregunta(String pregunta) {
+        this.pregunta = pregunta;
     }
 
     public String getP1() {
@@ -73,7 +83,8 @@ public class Preguntas {
     public void setCat(String cat) {
         this.cat = cat;
     }
-    
+
+ 
     
     
 }

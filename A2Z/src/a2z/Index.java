@@ -12,6 +12,9 @@ import java.awt.Color;
  * @author marek
  */
 public class Index extends javax.swing.JFrame {
+    
+   
+    
 
     /**
      * Creates new form Index
@@ -39,6 +42,9 @@ public class Index extends javax.swing.JFrame {
 
         jButtonRegister_go.setForeground(Color.BLACK);
         jButtonRegister_go.setBackground(Color.WHITE);
+        
+              
+                       
     }
 
     /**

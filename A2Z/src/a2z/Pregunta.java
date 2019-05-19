@@ -16,6 +16,7 @@ import javax.swing.BorderFactory;
  */
 public class Pregunta extends javax.swing.JFrame {
 
+    int iduser=0;
     /**
      * Creates new form Pregunta
      */
@@ -42,8 +43,9 @@ public class Pregunta extends javax.swing.JFrame {
         jTextArea1.setText("¿Por qué razón “separado” se escribe todo junto y “todo junto” se escribe separado?");
     }
 
-    Pregunta(String ncategoria) {
+    Pregunta(int id_user, String ncategoria) {
           initComponents();
+          iduser = id_user;
         this.setLocationRelativeTo(null);
         this.setTitle("A2Z Game");
         this.getContentPane().setBackground(Color.decode("#1f2029"));
