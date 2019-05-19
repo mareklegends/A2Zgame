@@ -6,8 +6,10 @@
 package a2z;
 
 import java.awt.Color;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
 
@@ -15,12 +17,13 @@ import javax.swing.Timer;
  *
  * @author marek
  */
-
-
-
 public final class Ruleta extends javax.swing.JFrame {
-    
-    public void generarcategoria(){
+
+    ArrayList<String> vCategorias = bd.conexiones.verCategorias();
+    DefaultListModel modeloLista;
+    String finalcategoria="";
+
+    public void generarcategoria() {
         System.out.println("Hola");
     }
 
@@ -30,26 +33,35 @@ public final class Ruleta extends javax.swing.JFrame {
     public Ruleta() {
         initComponents();
         this.setLocationRelativeTo(null);
+           jButtonJugar.setEnabled(false);
         this.setTitle("A2Z Game");
         this.getContentPane().setBackground(Color.decode("#1f2029"));
-        jLabel1.setForeground(Color.decode("#fafafa"));
+        jLabel3.setForeground(Color.decode("#fafafa"));
         jLabel2.setForeground(Color.decode("#fafafa"));
         jLabel2.setText("-Calculadon la categoria-");
-        
+
         jButtonAtras.setForeground(Color.BLACK);
         jButtonAtras.setBackground(Color.WHITE);
         jButtonJugar.setForeground(Color.BLACK);
         jButtonJugar.setBackground(Color.WHITE);
+
+        modeloLista = new DefaultListModel();
+        jList1.setModel(modeloLista);
+        jList1.setDragEnabled(false);
+        for (int i = 0; i < vCategorias.size(); i++) {
+            modeloLista.addElement(vCategorias.get(i).toString());
+
+        }
+
     }
-    
-    
-   private void dormir(){
+
+    private void dormir() {
         try {
-            Thread.sleep(250);
+            Thread.sleep(1200);
         } catch (InterruptedException ex) {
             Logger.getLogger(Ruleta.class.getName()).log(Level.SEVERE, null, ex);
         }
-   }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -60,11 +72,12 @@ public final class Ruleta extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         jButtonJugar = new javax.swing.JButton();
         jButtonAtras = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -72,8 +85,6 @@ public final class Ruleta extends javax.swing.JFrame {
                 formWindowActivated(evt);
             }
         });
-
-        jLabel1.setText("-Aqui van los nombres de la categorias-");
 
         jButtonJugar.setText("Jugar");
         jButtonJugar.addActionListener(new java.awt.event.ActionListener() {
@@ -93,44 +104,55 @@ public final class Ruleta extends javax.swing.JFrame {
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("-Calculadon la categoria-");
 
+        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1.setViewportView(jList1);
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel3.setText("CATEGORÍAS");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButtonJugar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButtonAtras)
-                .addGap(113, 113, 113))
-            .addGroup(layout.createSequentialGroup()
+                .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(89, 89, 89)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(1, 1, 1)
-                                .addComponent(jLabel1))))
+                        .addComponent(jLabel3)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(55, 55, 55)
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(44, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jButtonJugar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButtonAtras)
+                                .addGap(113, 113, 113))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(84, 84, 84))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(106, Short.MAX_VALUE)
                 .addComponent(jLabel2)
-                .addGap(45, 45, 45)
+                .addGap(54, 54, 54)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonJugar)
                     .addComponent(jButtonAtras))
                 .addGap(42, 42, 42))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel3)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -145,15 +167,21 @@ public final class Ruleta extends javax.swing.JFrame {
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         dormir();
-        jLabel2.setText("Deportes");
+        int numero = (int) (Math.random() * vCategorias.size());
+        jLabel2.setText(vCategorias.get(numero).toString());
+        finalcategoria=vCategorias.get(numero).toString();
+        jButtonJugar.setEnabled(true);
     }//GEN-LAST:event_formWindowActivated
 
     private void jButtonJugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonJugarActionPerformed
         // TODO add your handling code here:
-        
-         Pregunta p = new Pregunta();
+
+        if (jButtonJugar.isEnabled()==true) {
+               Pregunta p = new Pregunta(finalcategoria);
         p.setVisible(true);
         this.dispose();
+        }
+     
     }//GEN-LAST:event_jButtonJugarActionPerformed
 
     /**
@@ -194,8 +222,9 @@ public final class Ruleta extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAtras;
     private javax.swing.JButton jButtonJugar;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JList<String> jList1;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

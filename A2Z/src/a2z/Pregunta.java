@@ -42,6 +42,31 @@ public class Pregunta extends javax.swing.JFrame {
         jTextArea1.setText("¿Por qué razón “separado” se escribe todo junto y “todo junto” se escribe separado?");
     }
 
+    Pregunta(String ncategoria) {
+          initComponents();
+        this.setLocationRelativeTo(null);
+        this.setTitle("A2Z Game");
+        this.getContentPane().setBackground(Color.decode("#1f2029"));
+        jLabel2.setForeground(Color.decode("#fafafa"));
+        jTextArea1.setBackground(Color.decode("#1f2029"));
+        jTextArea1.setForeground(Color.decode("#fafafa"));
+
+        jButtonRespuesta1.setForeground(Color.BLACK);
+        jButtonRespuesta1.setBackground(Color.WHITE);
+
+        jButtonRespuesta2.setForeground(Color.BLACK);
+        jButtonRespuesta2.setBackground(Color.WHITE);
+
+        jButtonRespuesta3.setForeground(Color.BLACK);
+        jButtonRespuesta3.setBackground(Color.WHITE);
+        jTextArea1.setLineWrap(true);
+        jTextArea1.setEditable(false);
+        jLabelnt.setText("n");
+        jTextArea1.setText("¿Por qué razón “separado” se escribe todo junto y “todo junto” se escribe separado?");
+    }
+
+   
+
     /*
     public void tiempo() {
         boolean bandera = false;
