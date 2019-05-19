@@ -18,7 +18,9 @@ public class AdminPFormulario extends javax.swing.JFrame {
     public AdminPFormulario() {
         initComponents();
         this.setLocationRelativeTo(null);
-        this.setTitle("A2Z Game");
+        this.setTitle("A2Z Game");      
+        
+        
         this.getContentPane().setBackground(Color.decode("#1f2029"));
         jLabel1.setForeground(Color.decode("#fafafa"));
         jLabel2.setForeground(Color.decode("#fafafa"));
