@@ -6,15 +6,27 @@
 
 package a2z;
 
+import java.awt.Color;
+
 /**
  *
  * @author marek
  */
-public class AdminArchivo extends javax.swing.JFrame {
+public class AdminPFormulario extends javax.swing.JFrame {
 
     /** Creates new form AdminArchivo */
-    public AdminArchivo() {
+    public AdminPFormulario() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.setTitle("A2Z Game");
+        this.getContentPane().setBackground(Color.decode("#1f2029"));
+        jLabel1.setForeground(Color.decode("#fafafa"));
+        jLabel2.setForeground(Color.decode("#fafafa"));
+        jLabel3.setForeground(Color.decode("#fafafa"));
+        jLabel4.setForeground(Color.decode("#fafafa"));
+        jLabel5.setForeground(Color.decode("#fafafa"));
+        jLabel6.setForeground(Color.decode("#fafafa"));
+        jLabel7.setForeground(Color.decode("#fafafa"));
     }
 
     /** This method is called from within the constructor to
@@ -190,20 +202,21 @@ public class AdminArchivo extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AdminArchivo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdminPFormulario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AdminArchivo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdminPFormulario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AdminArchivo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdminPFormulario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AdminArchivo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdminPFormulario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AdminArchivo().setVisible(true);
+                new AdminPFormulario().setVisible(true);
             }
         });
     }
