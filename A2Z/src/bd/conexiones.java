@@ -213,5 +213,9 @@ public class conexiones {
         
         return vPregunta;
     }
+
+    public static void nuevaPreguntaFormularios() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

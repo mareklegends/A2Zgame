@@ -68,9 +68,19 @@ public class Admin extends javax.swing.JFrame {
         jMenu3.setText("Añadir Preguntas");
 
         jMenuItem1.setText("Formulario");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         jMenu3.add(jMenuItem1);
 
         jMenuItem2.setText("Archivo");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenu3.add(jMenuItem2);
 
         jMenuBar1.add(jMenu3);
@@ -120,25 +130,25 @@ public class Admin extends javax.swing.JFrame {
 
     private void jMenu5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu5ActionPerformed
         // TODO add your handling code here:
-     
+
     }//GEN-LAST:event_jMenu5ActionPerformed
 
     private void jMenu5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu5MouseClicked
         // TODO add your handling code here:
-           this.dispose();
+        this.dispose();
     }//GEN-LAST:event_jMenu5MouseClicked
 
     private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
         // TODO add your handling code here:
-        int totaln =0;
-        String datos = "Total de usuarios "+totaln;
+        int totaln = 0;
+        String datos = "Total de usuarios " + totaln;
         JOptionPane.showMessageDialog(null, datos);
     }//GEN-LAST:event_jMenu1MouseClicked
 
     private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
         // TODO add your handling code here:
-         int totaln =0;
-        String datos = "Total de preguntas "+totaln;
+        int totaln = 0;
+        String datos = "Total de preguntas " + totaln;
         JOptionPane.showMessageDialog(null, datos);
     }//GEN-LAST:event_jMenu2MouseClicked
 
@@ -146,6 +156,21 @@ public class Admin extends javax.swing.JFrame {
         // TODO add your handling code here:
         JOptionPane.showMessageDialog(null, "A2Z esta en la versión: 1.0");
     }//GEN-LAST:event_jMenu4MouseClicked
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+
+        AdminPFormulario apf = new AdminPFormulario();
+        apf.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+        AdminPArchivo apa = new AdminPArchivo();
+        apa.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments
