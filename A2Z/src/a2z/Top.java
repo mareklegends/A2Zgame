@@ -6,12 +6,18 @@
 package a2z;
 
 import java.awt.Color;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author alumno
  */
 public class Top extends javax.swing.JFrame {
+   
+    
+    ArrayList<Jugadores> vJugadoresNOADMIN =  bd.conexiones.topJugadores();
+    
 
     /**
      * Creates new form Top
@@ -26,6 +32,17 @@ public class Top extends javax.swing.JFrame {
         
         jButton1.setForeground(Color.BLACK);
         jButton1.setBackground(Color.WHITE);
+        
+       DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
+       
+       Object[] fila = new Object[modelo.getColumnCount()];
+        for (int i = 0; i < vJugadoresNOADMIN.size(); i++) {
+            fila[0] = i;
+            fila[1] = vJugadoresNOADMIN.get(i).getNombre();
+            fila[2] = vJugadoresNOADMIN.get(i).getPuntos();
+            modelo.addRow(fila);
+        }
+        
     }
 
     /**
