@@ -21,6 +21,7 @@ public class Pregunta extends javax.swing.JFrame {
     ArrayList<Preguntas> vPregunta = null;
     int npreguntabuena = 0;
     int iduser = 0;
+    int codpregunta=0;
 
     /**
      * Creates new form Pregunta
@@ -54,14 +55,15 @@ public class Pregunta extends javax.swing.JFrame {
 
         vPregunta = bd.conexiones.jugarPregunta(id_user, ncategoria);
 
-        for (int i = 0; i < vPregunta.size(); i++) {
-            jTextArea1.setText(vPregunta.get(i).getPregunta());
-            jButtonRespuesta1.setText(vPregunta.get(i).getP1());
-            jButtonRespuesta2.setText(vPregunta.get(i).getP2());
-            jButtonRespuesta3.setText(vPregunta.get(i).getP3());
-            npreguntabuena = vPregunta.get(i).getPbuena();
-            break;
-        }
+            for (int i = 0; i < vPregunta.size(); i++) {
+                codpregunta = vPregunta.get(i).getCodpregunta();
+                jTextArea1.setText(vPregunta.get(i).getPregunta());
+                jButtonRespuesta1.setText(vPregunta.get(i).getP1());
+                jButtonRespuesta2.setText(vPregunta.get(i).getP2());
+                jButtonRespuesta3.setText(vPregunta.get(i).getP3());
+                npreguntabuena = vPregunta.get(i).getPbuena();
+                break;
+            }
 
         this.setLocationRelativeTo(null);
         this.setTitle("A2Z Game");
@@ -81,9 +83,8 @@ public class Pregunta extends javax.swing.JFrame {
         jTextArea1.setLineWrap(true);
         jTextArea1.setEditable(false);
         jLabelnt.setText("n");
-        
-     
-    }
+
+    }  
 
     /*
     public void tiempo() {
@@ -231,33 +232,46 @@ public class Pregunta extends javax.swing.JFrame {
 
     private void jButtonRespuesta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRespuesta1ActionPerformed
         // TODO add your handling code here:
-        if (npreguntabuena==1) {            
-             JOptionPane.showMessageDialog(null, "Pregunta correcta");
+        if (npreguntabuena == 1) {
+            PAcertada pa = new PAcertada(iduser, codpregunta);
+            pa.setVisible(true);
+            this.dispose();
+
         } else {
-             JOptionPane.showMessageDialog(null, "Pregunta fallida");
+            PFallo pf = new PFallo(iduser);
+            pf.setVisible(true);
+            this.dispose();
         }
-         
-        
+
+
     }//GEN-LAST:event_jButtonRespuesta1ActionPerformed
 
     private void jButtonRespuesta2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRespuesta2ActionPerformed
         // TODO add your handling code here:
-          if (npreguntabuena==2) {            
-             JOptionPane.showMessageDialog(null, "Pregunta correcta");
+        if (npreguntabuena == 2) {
+            PAcertada pa = new PAcertada(iduser, codpregunta);
+            pa.setVisible(true);
+            this.dispose();
         } else {
-             JOptionPane.showMessageDialog(null, "Pregunta fallida");
+             PFallo pf = new PFallo(iduser);
+            pf.setVisible(true);
+            this.dispose();
         }
-         
+
     }//GEN-LAST:event_jButtonRespuesta2ActionPerformed
 
     private void jButtonRespuesta3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRespuesta3ActionPerformed
         // TODO add your handling code here:
-          if (npreguntabuena==3) {            
-             JOptionPane.showMessageDialog(null, "Pregunta correcta");
+        if (npreguntabuena == 3) {
+            PAcertada pa = new PAcertada(iduser, codpregunta);
+            pa.setVisible(true);
+            this.dispose();
         } else {
-             JOptionPane.showMessageDialog(null, "Pregunta fallida");
+            PFallo pf = new PFallo(iduser);
+            pf.setVisible(true);
+            this.dispose();
         }
-         
+
     }//GEN-LAST:event_jButtonRespuesta3ActionPerformed
 
     /**
