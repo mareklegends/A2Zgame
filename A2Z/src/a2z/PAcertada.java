@@ -12,7 +12,7 @@ import java.awt.Color;
  * @author marek
  */
 public class PAcertada extends javax.swing.JFrame {
-
+int id_user=0;
     /**
      * Creates new form PAcertada
      */
@@ -26,10 +26,13 @@ public class PAcertada extends javax.swing.JFrame {
    
 
     PAcertada(int iduser, int codpregunta) {
+        id_user=iduser;
         initComponents();
           this.setLocationRelativeTo(null);
         this.setTitle("A2Z Game");
         this.getContentPane().setBackground(Color.decode("#42f471"));
+        bd.conexiones.darpuntosyvidas(id_user);
+        bd.conexiones.preguntaCorrecta(id_user, codpregunta);
       
     }
 
