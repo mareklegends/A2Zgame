@@ -380,6 +380,7 @@ public class conexiones {
             // db parameters
             String url = "jdbc:mysql://localhost:3306/basesproyectojava";
             String user = "root";
+            
             String password = "";
 
             // create a connection to the database
