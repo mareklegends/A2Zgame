@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
 public class Dashboard extends javax.swing.JFrame {
 
     ArrayList<Jugadores> vJugadorInfo = null;
-    int iduser = 2;
+    int iduser = 0;
     int vidas = 0;
     int puntos = 0;
 
@@ -106,7 +106,7 @@ public class Dashboard extends javax.swing.JFrame {
 
     }
 
-    Dashboard(int id_user) {
+   Dashboard(int id_user) {
   initComponents();
 
         this.setLocationRelativeTo(null);
@@ -130,7 +130,7 @@ public class Dashboard extends javax.swing.JFrame {
         jButton3.setForeground(Color.BLACK);
         jButton3.setBackground(Color.WHITE);
 
-        vJugadorInfo = bd.conexiones.jugadorInfo(iduser);
+        vJugadorInfo = bd.conexiones.jugadorInfo(id_user);
 
         for (int i = 0; i < vJugadorInfo.size(); i++) {
             jLabelnombreusuario.setText(vJugadorInfo.get(i).getNombre().toUpperCase());
