@@ -217,5 +217,86 @@ public class conexiones {
     public static void nuevaPreguntaFormularios() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    public static int contadorUsuarios(){
+         int numero=0;
+        Connection conn = null;
+        try {
+            // db parameters
+            String url = "jdbc:mysql://localhost:3306/basesproyectojava";
+            String user = "root";
+            String password = "";
+
+            // create a connection to the database
+            conn = (Connection) DriverManager.getConnection(url, user, password);
+            // more processing here
+
+         PreparedStatement ps2 = (PreparedStatement) conn.prepareStatement("SELECT COUNT(usuarios.codusuarios) FROM usuarios WHERE usuarios.admin=0");
+       
+         
+         ResultSet rs = ps2.executeQuery();
+            
+        
+            while (rs.next()) {
+                
+             numero=rs.getInt(1);
+                
+            }
+           
+
+            // ... 
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            try {
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
+        return numero;
+    }
+    public static int contadorPreguntas(){
+               int numero=0;
+        Connection conn = null;
+        try {
+            // db parameters
+            String url = "jdbc:mysql://localhost:3306/basesproyectojava";
+            String user = "root";
+            String password = "";
+
+            // create a connection to the database
+            conn = (Connection) DriverManager.getConnection(url, user, password);
+            // more processing here
+
+         PreparedStatement ps2 = (PreparedStatement) conn.prepareStatement("SELECT COUNT(preguntas.codpreguntas) FROM preguntas");
+       
+         
+         ResultSet rs = ps2.executeQuery();
+            
+        
+            while (rs.next()) {
+                
+             numero=rs.getInt(1);
+                
+            }
+           
+
+            // ... 
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            try {
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
+          return numero;
+        
+    }
     
 }

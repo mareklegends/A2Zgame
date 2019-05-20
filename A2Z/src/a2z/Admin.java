@@ -5,6 +5,8 @@
  */
 package a2z;
 
+import static bd.conexiones.contadorPreguntas;
+import static bd.conexiones.contadorUsuarios;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 
@@ -35,6 +37,7 @@ public class Admin extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -48,6 +51,8 @@ public class Admin extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel1.setText("AdminPanel a2z");
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/a2z/logojuego.png"))); // NOI18N
 
         jMenu1.setText("Nº Usuarios");
         jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -112,15 +117,22 @@ public class Admin extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(402, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(44, 44, 44))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(196, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(44, 44, 44))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(36, 36, 36))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(365, Short.MAX_VALUE)
+                .addContainerGap(177, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel1)
                 .addGap(103, 103, 103))
         );
@@ -140,15 +152,14 @@ public class Admin extends javax.swing.JFrame {
 
     private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
         // TODO add your handling code here:
-        int totaln = 0;
-        String datos = "Total de usuarios " + totaln;
+        
+        String datos = "Total de usuarios: " + contadorUsuarios();
         JOptionPane.showMessageDialog(null, datos);
     }//GEN-LAST:event_jMenu1MouseClicked
 
     private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
         // TODO add your handling code here:
-        int totaln = 0;
-        String datos = "Total de preguntas " + totaln;
+        String datos = "Total de preguntas: " + contadorPreguntas();
         JOptionPane.showMessageDialog(null, datos);
     }//GEN-LAST:event_jMenu2MouseClicked
 
@@ -209,6 +220,7 @@ public class Admin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
