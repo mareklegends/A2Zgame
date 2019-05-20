@@ -12,7 +12,7 @@ import java.awt.Color;
  * @author marek
  */
 public class PFallo extends javax.swing.JFrame {
-
+int id_user = 0;
     /**
      * Creates new form PFallo
      */
@@ -24,10 +24,12 @@ public class PFallo extends javax.swing.JFrame {
     }
 
     PFallo(int iduser) {
+        id_user = iduser;
           initComponents();
         this.setLocationRelativeTo(null);
         this.setTitle("A2Z Game");
         this.getContentPane().setBackground(Color.decode("#f44141"));
+        bd.conexiones.quitarvidas(id_user);
     }
 
     /**
@@ -53,8 +55,18 @@ public class PFallo extends javax.swing.JFrame {
         jLabel2.setText("-10");
 
         jButtonvajugar.setText("Volver a Jugar");
+        jButtonvajugar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonvajugarActionPerformed(evt);
+            }
+        });
 
         jButtoniamenu.setText("Ir al Menu");
+        jButtoniamenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtoniamenuActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -74,7 +86,7 @@ public class PFallo extends javax.swing.JFrame {
                         .addGap(30, 30, 30))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addGap(80, 80, 80))))
+                        .addGap(83, 83, 83))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -92,6 +104,21 @@ public class PFallo extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonvajugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonvajugarActionPerformed
+        // TODO add your handling code here:
+        
+        Ruleta r = new Ruleta(id_user);
+        r.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButtonvajugarActionPerformed
+
+    private void jButtoniamenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtoniamenuActionPerformed
+        // TODO add your handling code here:
+         Dashboard d = new Dashboard(id_user);
+        d.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButtoniamenuActionPerformed
 
     /**
      * @param args the command line arguments

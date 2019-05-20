@@ -82,11 +82,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Volver a Jugar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonvajugarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButtoniamenu">
       <Properties>
         <Property name="text" type="java.lang.String" value="Ir al Menu"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtoniamenuActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

@@ -12,7 +12,9 @@ import java.awt.Color;
  * @author marek
  */
 public class PAcertada extends javax.swing.JFrame {
-int id_user=0;
+
+    int id_user = 0;
+
     /**
      * Creates new form PAcertada
      */
@@ -23,17 +25,15 @@ int id_user=0;
         this.getContentPane().setBackground(Color.decode("#42f471"));
     }
 
-   
-
     PAcertada(int iduser, int codpregunta) {
-        id_user=iduser;
+        id_user = iduser;
         initComponents();
-          this.setLocationRelativeTo(null);
+        this.setLocationRelativeTo(null);
         this.setTitle("A2Z Game");
         this.getContentPane().setBackground(Color.decode("#42f471"));
         bd.conexiones.darpuntosyvidas(id_user);
         bd.conexiones.preguntaCorrecta(id_user, codpregunta);
-      
+
     }
 
     /**
@@ -59,8 +59,18 @@ int id_user=0;
         jLabel2.setText("+10");
 
         jButtonvajugar.setText("Volver a Jugar");
+        jButtonvajugar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonvajugarActionPerformed(evt);
+            }
+        });
 
         jButtoniamenu.setText("Ir al Menu");
+        jButtoniamenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtoniamenuActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -97,6 +107,21 @@ int id_user=0;
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonvajugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonvajugarActionPerformed
+        // TODO add your handling code here:
+
+        Ruleta r = new Ruleta(id_user);
+        r.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButtonvajugarActionPerformed
+
+    private void jButtoniamenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtoniamenuActionPerformed
+        // TODO add your handling code here:
+        Dashboard d = new Dashboard(id_user);
+        d.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButtoniamenuActionPerformed
 
     /**
      * @param args the command line arguments
