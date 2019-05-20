@@ -1,5 +1,6 @@
 package bd;
 
+import a2z.HelpLogin;
 import a2z.Jugadores;
 import a2z.Preguntas;
 import com.mysql.jdbc.Connection;
@@ -344,11 +345,20 @@ public class conexiones {
             while (rs.next()) {
                 vidas = rs.getInt(1);
             }
-
-            PreparedStatement ps2 = (PreparedStatement) conn.prepareStatement("UPDATE usuarios SET usuarios.vidas=? WHERE usuarios.codusuarios=?");
+            
+            if (vidas==0) {
+                 PreparedStatement ps2 = (PreparedStatement) conn.prepareStatement("UPDATE usuarios SET usuarios.vidas=? WHERE usuarios.codusuarios=?");
             ps2.setInt(1, (vidas + 1));
             ps2.setInt(2, cod_usuario);
             int rs2 = ps2.executeUpdate();
+            }else{
+                PreparedStatement ps2 = (PreparedStatement) conn.prepareStatement("UPDATE usuarios SET usuarios.vidas=? WHERE usuarios.codusuarios=?");
+            ps2.setInt(1, (vidas - 1));
+            ps2.setInt(2, cod_usuario);
+            int rs2 = ps2.executeUpdate(); 
+            }
+
+           
 
             // ... 
         } catch (SQLException e) {
@@ -365,7 +375,7 @@ public class conexiones {
     }
 
     public static void preguntaCorrecta(int cod_usuario, int cod_pregunta) {
-Connection conn = null;
+        Connection conn = null;
         try {
             // db parameters
             String url = "jdbc:mysql://localhost:3306/basesproyectojava";
@@ -375,7 +385,6 @@ Connection conn = null;
             // create a connection to the database
             conn = (Connection) DriverManager.getConnection(url, user, password);
             // more processing here
-
 
             PreparedStatement ps2 = (PreparedStatement) conn.prepareStatement("INSERT INTO pok (pokuser, pokpregunta) VALUES (?, ?)");
             ps2.setInt(1, cod_usuario);
@@ -395,4 +404,94 @@ Connection conn = null;
             }
         }
     }
+
+    public static int regitrarse(String nombre, String pass, String fecha) {
+        int cod_user=0;
+        Connection conn = null;
+        try {
+            // db parameters
+            String url = "jdbc:mysql://localhost:3306/basesproyectojava";
+            String user = "root";
+            String password = "";
+
+            // create a connection to the database
+            conn = (Connection) DriverManager.getConnection(url, user, password);
+            // more processing here
+
+            PreparedStatement ps2 = (PreparedStatement) conn.prepareStatement("INSERT INTO usuarios (codusuarios, nickname, clave, fecha, puntos, vidas, admin) VALUES (0, ?, ?, ?, 0, 10, 0)");
+            ps2.setString(1, nombre);
+            ps2.setString(2, pass);
+            ps2.setString(3, fecha);
+            int rs2 = ps2.executeUpdate();
+
+            
+            PreparedStatement ps3 = (PreparedStatement) conn.prepareStatement("SELECT usuarios.codusuarios FROM usuarios WHERE usuarios.nickname LIKE ?");
+            ps3.setString(1, nombre);
+            ResultSet rs = ps3.executeQuery();
+
+            while (rs.next()) {
+                cod_user = rs.getInt(1);
+            }
+            
+            
+            // ... 
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            try {
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
+        return cod_user;
+    }
+    
+    public static ArrayList<HelpLogin> iniciarse(String nombre, String pass) {
+        ArrayList<HelpLogin> vLogin = new ArrayList();
+        HelpLogin hp = null;
+        int cod_user=0;
+        Connection conn = null;
+        try {
+            // db parameters
+            String url = "jdbc:mysql://localhost:3306/basesproyectojava";
+            String user = "root";
+            String password = "";
+
+            // create a connection to the database
+            conn = (Connection) DriverManager.getConnection(url, user, password);
+            // more processing here
+
+            
+
+            
+            PreparedStatement ps3 = (PreparedStatement) conn.prepareStatement("SELECT usuarios.codusuarios, usuarios.admin FROM usuarios WHERE usuarios.nickname LIKE ? AND usuarios.clave LIKE ? ");
+            ps3.setString(1, nombre);
+            ps3.setString(2, pass);
+            ResultSet rs = ps3.executeQuery();
+
+            while (rs.next()) {
+                hp = new HelpLogin(rs.getInt(1), rs.getInt(2));                
+                vLogin.add(hp);
+            }
+            
+            
+            // ... 
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            try {
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
+        return vLogin;
+    }
+    
+
 }

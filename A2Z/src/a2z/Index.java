@@ -6,15 +6,17 @@
 package a2z;
 
 import java.awt.Color;
+import java.util.ArrayList;
 
 /**
  *
  * @author marek
  */
 public class Index extends javax.swing.JFrame {
-    
-   
-    
+
+    ArrayList<HelpLogin> vLogin = null;
+
+    int id_user = 0;
 
     /**
      * Creates new form Index
@@ -42,9 +44,7 @@ public class Index extends javax.swing.JFrame {
 
         jButtonRegister_go.setForeground(Color.BLACK);
         jButtonRegister_go.setBackground(Color.WHITE);
-        
-              
-                       
+
     }
 
     /**
@@ -76,7 +76,6 @@ public class Index extends javax.swing.JFrame {
         jSeparator2 = new javax.swing.JSeparator();
         jButton1 = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -114,6 +113,11 @@ public class Index extends javax.swing.JFrame {
         jLabel7.setText("dd/mm/yyyy");
 
         jButtonRegister_go.setText("GO");
+        jButtonRegister_go.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRegister_goActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("SALIR");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -124,13 +128,6 @@ public class Index extends javax.swing.JFrame {
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/a2z/logojuego.png"))); // NOI18N
 
-        jButton2.setText("Admin");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -140,7 +137,7 @@ public class Index extends javax.swing.JFrame {
                 .addComponent(jButtonIniciarse)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButtonRegister_go)
-                .addGap(137, 137, 137))
+                .addGap(116, 116, 116))
             .addGroup(layout.createSequentialGroup()
                 .addGap(151, 151, 151)
                 .addComponent(jLabelLogin)
@@ -179,9 +176,7 @@ public class Index extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(293, 293, 293)
                 .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addGap(29, 29, 29))
+                .addGap(29, 286, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -227,16 +222,14 @@ public class Index extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(25, 25, 25)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButtonIniciarse)
-                            .addComponent(jButtonRegister_go))
+                        .addComponent(jButtonIniciarse)
                         .addGap(18, 18, 18)
                         .addComponent(jButton1)
                         .addContainerGap(28, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2)
-                        .addContainerGap())))
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonRegister_go)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         pack();
@@ -248,10 +241,24 @@ public class Index extends javax.swing.JFrame {
 
     private void jButtonIniciarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIniciarseActionPerformed
         // TODO add your handling code here:
-
-        Dashboard d = new Dashboard();
-        d.setVisible(true);
-        this.dispose();
+        int admin = 0;        
+        String nombre = jTextFieldLogin_usuario.getText();
+        String pass = new String(jPasswordFieldLogin_clave.getPassword());
+        vLogin = bd.conexiones.iniciarse(nombre, pass);
+        for (int i = 0; i < vLogin.size(); i++) {
+            admin = vLogin.get(i).getAdmin();
+            id_user = vLogin.get(i).getCoduser();
+            break;
+        }
+        if (admin == 1) {
+            Admin a = new Admin();
+            a.setVisible(true);
+            this.dispose();
+        } else {
+            Dashboard d = new Dashboard(id_user);
+            d.setVisible(true);
+            this.dispose();
+        }
     }//GEN-LAST:event_jButtonIniciarseActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -259,13 +266,18 @@ public class Index extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jButtonRegister_goActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegister_goActionPerformed
         // TODO add your handling code here:
-        
-        Admin a = new Admin();
-        a.setVisible(true);
+        String nombre = jTextFieldRegister_usuario.getText();
+        String pass = new String(jPasswordFieldRegister_clave.getPassword());
+        String fecha = jTextFieldRegister_fecha.getText();
+        int id_user = bd.conexiones.regitrarse(nombre, pass, fecha);
+
+        Dashboard d = new Dashboard(id_user);
+        d.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
+
+    }//GEN-LAST:event_jButtonRegister_goActionPerformed
 
     /**
      * @param args the command line arguments
@@ -304,7 +316,6 @@ public class Index extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonIniciarse;
     private javax.swing.JButton jButtonRegister_go;
     private javax.swing.JLabel jLabel1;
