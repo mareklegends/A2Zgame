@@ -24,8 +24,9 @@ private int id_user = 0;
     }
 
     public PFallo(int iduser) {
-        id_user = iduser;
+        
           initComponents();
+          id_user = iduser;
         this.setLocationRelativeTo(null);
         this.setTitle("A2Z Game");
         this.getContentPane().setBackground(Color.decode("#f44141"));

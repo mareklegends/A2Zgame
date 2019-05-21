@@ -19,7 +19,7 @@ import javax.swing.Timer;
  */
 public final class Ruleta extends javax.swing.JFrame {
 
-    private int id_user =0;
+    private int id_user;
     private ArrayList<String> vCategorias = bd.conexiones.verCategorias();
     private DefaultListModel modeloLista;
     private String finalcategoria="";
@@ -53,7 +53,7 @@ public final class Ruleta extends javax.swing.JFrame {
     /**
      * Creates new form Ruleta
      */
-    public Ruleta() {
+  /*  public Ruleta() {
         initComponents();
         this.setLocationRelativeTo(null);
            jButtonJugar.setEnabled(false);
@@ -77,7 +77,7 @@ public final class Ruleta extends javax.swing.JFrame {
         }
 
     }
-
+*/
     private void dormir() {
         try {
             Thread.sleep(1200);
@@ -183,7 +183,8 @@ public final class Ruleta extends javax.swing.JFrame {
 
     private void jButtonAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAtrasActionPerformed
         // TODO add your handling code here:
-        Dashboard d = new Dashboard();
+        
+        Dashboard d = new Dashboard(id_user);
         d.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButtonAtrasActionPerformed
@@ -200,9 +201,9 @@ public final class Ruleta extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         if (jButtonJugar.isEnabled()==true) {
-               Pregunta p = new Pregunta(id_user, finalcategoria);
-        p.setVisible(true);
-        this.dispose();
+            Pregunta p = new Pregunta(id_user, finalcategoria);
+            p.setVisible(true);
+            this.dispose();
         }
      
     }//GEN-LAST:event_jButtonJugarActionPerformed
@@ -210,37 +211,6 @@ public final class Ruleta extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Ruleta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Ruleta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Ruleta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Ruleta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Ruleta().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAtras;

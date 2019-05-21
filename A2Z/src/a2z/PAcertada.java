@@ -26,8 +26,9 @@ public class PAcertada extends javax.swing.JFrame {
     }
 
     public PAcertada(int iduser, int codpregunta) {
-        id_user = iduser;
+        
         initComponents();
+        id_user = iduser;
         this.setLocationRelativeTo(null);
         this.setTitle("A2Z Game");
         this.getContentPane().setBackground(Color.decode("#42f471"));

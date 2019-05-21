@@ -348,14 +348,16 @@ public class conexiones {
             
             if (vidas==0) {
                  PreparedStatement ps2 = (PreparedStatement) conn.prepareStatement("UPDATE usuarios SET usuarios.vidas=? WHERE usuarios.codusuarios=?");
-            ps2.setInt(1, (vidas + 1));
-            ps2.setInt(2, cod_usuario);
-            ps2.executeUpdate();
+                ps2.setInt(1, (vidas + 1));
+                ps2.setInt(2, cod_usuario);
+                ps2.executeUpdate();
             }else{
                 PreparedStatement ps3 = (PreparedStatement) conn.prepareStatement("UPDATE usuarios SET usuarios.vidas=? WHERE usuarios.codusuarios=?");
-            ps3.setInt(1, (vidas - 1));
-            ps3.setInt(2, cod_usuario);
-            ps3.executeUpdate(); 
+                ps3.setInt(1, (vidas - 1));
+                ps3.setInt(2, cod_usuario);
+                if (ps3.executeUpdate()>0){
+                    System.out.println("Vidas incrementadas");
+                } 
             }
 
            
@@ -391,6 +393,7 @@ public class conexiones {
             ps2.setInt(1, cod_usuario);
             ps2.setInt(2, cod_pregunta);
             ps2.executeUpdate();
+            
 
             // ... 
         } catch (SQLException e) {

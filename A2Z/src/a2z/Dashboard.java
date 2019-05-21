@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
 public class Dashboard extends javax.swing.JFrame {
 
     private ArrayList<Jugadores> vJugadorInfo = null;
-    private int iduser = 0;
+    private int iduser;
     private int vidas = 0;
     private int puntos = 0;
 
@@ -107,8 +107,8 @@ public class Dashboard extends javax.swing.JFrame {
     }
 
    public Dashboard(int id_user) {
-  initComponents();
-
+        initComponents();
+        iduser = id_user;
         this.setLocationRelativeTo(null);
         this.setTitle("A2Z Game");
         this.getContentPane().setBackground(Color.decode("#1f2029"));
@@ -307,6 +307,7 @@ public class Dashboard extends javax.swing.JFrame {
         if (vidas == 0) {
             JOptionPane.showMessageDialog(null, "No tienes vidas para poder jugar");
         } else {
+            System.out.println("Dashboard: " + iduser);
             Ruleta r = new Ruleta(iduser);
             r.setVisible(true);
             this.dispose();
