@@ -497,5 +497,44 @@ public class conexiones {
         return vLogin;
     }
     
+    
+    public static void ponerPreguntas(String pregunta, String r1, String r2, String r3, int codrespuestabuena, int codcat) {
+       Connection conn = null;
+        try {
+            // db parameters
+            String url = "jdbc:mysql://localhost:3306/basesproyectojava";
+            String user = "root";
+            String password = "";
+
+            // create a connection to the database
+            conn = (Connection) DriverManager.getConnection(url, user, password);
+            // more processing here
+
+            
+            PreparedStatement ps2 = (PreparedStatement) conn.prepareStatement("INSERT INTO preguntas (codpreguntas, pregunta, r1, r2, r3, rbuena, codcat) VALUES (0, ?, ?, ?, ?, ?, ?)");
+            ps2.setString(1, pregunta);
+            ps2.setString(2, r1);
+            ps2.setString(3, r2);
+            ps2.setString(4, r3);
+            ps2.setInt(5, codrespuestabuena);
+            ps2.setInt(6, codcat);
+            ps2.executeUpdate();
+            
+            
+            // ... 
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            try {
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
+        
+    }
+    
 
 }

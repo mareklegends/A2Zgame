@@ -214,7 +214,7 @@ public class AdminPFormulario extends javax.swing.JFrame {
         int codrespuestabuena =  jComboBox1.getSelectedIndex()+1;
         int codcat =  jComboBox2.getSelectedIndex()+1;
         
-        System.out.println("Pregunta: "+pregunta+"\n Respueta 1: "+r1+"\n Respuesta 2: "+r2+"\n Respuesta 3: "+r3+"\n Cod Respuesta Correcta: "+codrespuestabuena+"\n Cod Categoria "+codcat+"");
+        bd.conexiones.ponerPreguntas(pregunta, r1, r2, r3, codrespuestabuena, codcat);
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
