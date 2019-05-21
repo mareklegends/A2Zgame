@@ -207,7 +207,15 @@ public class AdminPFormulario extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        //---- añadir aqui funcion de nueva pregunta formulario
+        String pregunta = jTextArea1.getText();
+        String r1 = jTextField1.getText();
+        String r2 = jTextField2.getText();
+        String r3 = jTextField3.getText();
+        int codrespuestabuena =  jComboBox1.getSelectedIndex()+1;
+        int codcat =  jComboBox2.getSelectedIndex()+1;
+        
+        System.out.println("Pregunta: "+pregunta+"\n Respueta 1: "+r1+"\n Respuesta 2: "+r2+"\n Respuesta 3: "+r3+"\n Cod Respuesta Correcta: "+codrespuestabuena+"\n Cod Categoria "+codcat+"");
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
