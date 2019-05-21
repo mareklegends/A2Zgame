@@ -345,22 +345,20 @@ public class conexiones {
             while (rs.next()) {
                 vidas = rs.getInt(1);
             }
-            
-            if (vidas==0) {
-                 PreparedStatement ps2 = (PreparedStatement) conn.prepareStatement("UPDATE usuarios SET usuarios.vidas=? WHERE usuarios.codusuarios=?");
+
+            if (vidas == 0) {
+                PreparedStatement ps2 = (PreparedStatement) conn.prepareStatement("UPDATE usuarios SET usuarios.vidas=? WHERE usuarios.codusuarios=?");
                 ps2.setInt(1, (vidas + 1));
                 ps2.setInt(2, cod_usuario);
                 ps2.executeUpdate();
-            }else{
+            } else {
                 PreparedStatement ps3 = (PreparedStatement) conn.prepareStatement("UPDATE usuarios SET usuarios.vidas=? WHERE usuarios.codusuarios=?");
                 ps3.setInt(1, (vidas - 1));
                 ps3.setInt(2, cod_usuario);
-                if (ps3.executeUpdate()>0){
+                if (ps3.executeUpdate() > 0) {
                     System.out.println("Vidas incrementadas");
-                } 
+                }
             }
-
-           
 
             // ... 
         } catch (SQLException e) {
@@ -382,7 +380,7 @@ public class conexiones {
             // db parameters
             String url = "jdbc:mysql://localhost:3306/basesproyectojava";
             String user = "root";
-            
+
             String password = "";
 
             // create a connection to the database
@@ -393,7 +391,6 @@ public class conexiones {
             ps2.setInt(1, cod_usuario);
             ps2.setInt(2, cod_pregunta);
             ps2.executeUpdate();
-            
 
             // ... 
         } catch (SQLException e) {
@@ -410,7 +407,7 @@ public class conexiones {
     }
 
     public static int regitrarse(String nombre, String pass, String fecha) {
-        int cod_user=0;
+        int cod_user = 0;
         Connection conn = null;
         try {
             // db parameters
@@ -428,7 +425,6 @@ public class conexiones {
             ps2.setString(3, fecha);
             ps2.executeUpdate();
 
-            
             PreparedStatement ps3 = (PreparedStatement) conn.prepareStatement("SELECT usuarios.codusuarios FROM usuarios WHERE usuarios.nickname LIKE ?");
             ps3.setString(1, nombre);
             ResultSet rs = ps3.executeQuery();
@@ -436,8 +432,7 @@ public class conexiones {
             while (rs.next()) {
                 cod_user = rs.getInt(1);
             }
-            
-            
+
             // ... 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -452,11 +447,11 @@ public class conexiones {
         }
         return cod_user;
     }
-    
+
     public static ArrayList<HelpLogin> iniciarse(String nombre, String pass) {
         ArrayList<HelpLogin> vLogin = new ArrayList();
         HelpLogin hp = null;
-        int cod_user=0;
+        int cod_user = 0;
         Connection conn = null;
         try {
             // db parameters
@@ -468,20 +463,16 @@ public class conexiones {
             conn = (Connection) DriverManager.getConnection(url, user, password);
             // more processing here
 
-            
-
-            
             PreparedStatement ps3 = (PreparedStatement) conn.prepareStatement("SELECT usuarios.codusuarios, usuarios.admin FROM usuarios WHERE usuarios.nickname LIKE ? AND usuarios.clave LIKE ? ");
             ps3.setString(1, nombre);
             ps3.setString(2, pass);
             ResultSet rs = ps3.executeQuery();
 
             while (rs.next()) {
-                hp = new HelpLogin(rs.getInt(1), rs.getInt(2));                
+                hp = new HelpLogin(rs.getInt(1), rs.getInt(2));
                 vLogin.add(hp);
             }
-            
-            
+
             // ... 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -496,10 +487,9 @@ public class conexiones {
         }
         return vLogin;
     }
-    
-    
+
     public static void ponerPreguntas(String pregunta, String r1, String r2, String r3, int codrespuestabuena, int codcat) {
-       Connection conn = null;
+        Connection conn = null;
         try {
             // db parameters
             String url = "jdbc:mysql://localhost:3306/basesproyectojava";
@@ -510,7 +500,6 @@ public class conexiones {
             conn = (Connection) DriverManager.getConnection(url, user, password);
             // more processing here
 
-            
             PreparedStatement ps2 = (PreparedStatement) conn.prepareStatement("INSERT INTO preguntas (codpreguntas, pregunta, r1, r2, r3, rbuena, codcat) VALUES (0, ?, ?, ?, ?, ?, ?)");
             ps2.setString(1, pregunta);
             ps2.setString(2, r1);
@@ -519,8 +508,7 @@ public class conexiones {
             ps2.setInt(5, codrespuestabuena);
             ps2.setInt(6, codcat);
             ps2.executeUpdate();
-            
-            
+
             // ... 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -533,8 +521,7 @@ public class conexiones {
                 System.out.println(ex.getMessage());
             }
         }
-        
+
     }
-    
 
 }
