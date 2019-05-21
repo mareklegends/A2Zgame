@@ -14,7 +14,7 @@ import java.util.ArrayList;
  */
 public class AdminPArchivo extends javax.swing.JFrame {
 
-     ArrayList<String> vCategorias = bd.conexiones.verCategorias();
+     private ArrayList<String> vCategorias = bd.conexiones.verCategorias();
     
     /**
      * Creates new form AdminPArchivo

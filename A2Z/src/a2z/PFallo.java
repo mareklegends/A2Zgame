@@ -12,7 +12,7 @@ import java.awt.Color;
  * @author marek
  */
 public class PFallo extends javax.swing.JFrame {
-int id_user = 0;
+private int id_user = 0;
     /**
      * Creates new form PFallo
      */
@@ -23,7 +23,7 @@ int id_user = 0;
         this.getContentPane().setBackground(Color.decode("#f44141"));
     }
 
-    PFallo(int iduser) {
+    public PFallo(int iduser) {
         id_user = iduser;
           initComponents();
         this.setLocationRelativeTo(null);

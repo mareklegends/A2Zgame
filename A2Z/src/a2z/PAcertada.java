@@ -13,7 +13,7 @@ import java.awt.Color;
  */
 public class PAcertada extends javax.swing.JFrame {
 
-    int id_user = 0;
+   private int id_user = 0;
 
     /**
      * Creates new form PAcertada
@@ -25,7 +25,7 @@ public class PAcertada extends javax.swing.JFrame {
         this.getContentPane().setBackground(Color.decode("#42f471"));
     }
 
-    PAcertada(int iduser, int codpregunta) {
+    public PAcertada(int iduser, int codpregunta) {
         id_user = iduser;
         initComponents();
         this.setLocationRelativeTo(null);

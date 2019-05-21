@@ -390,7 +390,7 @@ public class conexiones {
             PreparedStatement ps2 = (PreparedStatement) conn.prepareStatement("INSERT INTO pok (pokuser, pokpregunta) VALUES (?, ?)");
             ps2.setInt(1, cod_usuario);
             ps2.setInt(2, cod_pregunta);
-            int rs2 = ps2.executeUpdate();
+            ps2.executeUpdate();
 
             // ... 
         } catch (SQLException e) {

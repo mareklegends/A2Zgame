@@ -14,9 +14,9 @@ import java.util.ArrayList;
  */
 public class Index extends javax.swing.JFrame {
 
-    ArrayList<HelpLogin> vLogin = null;
+    private ArrayList<HelpLogin> vLogin = null;
 
-    int id_user = 0;
+    private int id_user = 0;
 
     /**
      * Creates new form Index

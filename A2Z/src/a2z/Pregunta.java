@@ -18,10 +18,10 @@ import javax.swing.JOptionPane;
  */
 public class Pregunta extends javax.swing.JFrame {
 
-    ArrayList<Preguntas> vPregunta = null;
-    int npreguntabuena = 0;
-    int iduser = 0;
-    int codpregunta=0;
+    private ArrayList<Preguntas> vPregunta = null;
+    private int npreguntabuena = 0;
+    private int iduser = 0;
+    private int codpregunta=0;
 
     /**
      * Creates new form Pregunta
@@ -49,7 +49,7 @@ public class Pregunta extends javax.swing.JFrame {
         jTextArea1.setText("¿Por qué razón “separado” se escribe todo junto y “todo junto” se escribe separado?");
     }
 
-    Pregunta(int id_user, String ncategoria) {
+    public Pregunta(int id_user, String ncategoria) {
         initComponents();
         iduser = id_user;
 

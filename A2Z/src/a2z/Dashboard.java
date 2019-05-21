@@ -15,10 +15,10 @@ import javax.swing.JOptionPane;
  */
 public class Dashboard extends javax.swing.JFrame {
 
-    ArrayList<Jugadores> vJugadorInfo = null;
-    int iduser = 0;
-    int vidas = 0;
-    int puntos = 0;
+    private ArrayList<Jugadores> vJugadorInfo = null;
+    private int iduser = 0;
+    private int vidas = 0;
+    private int puntos = 0;
 
     /**
      * Creates new form Dashboard
@@ -106,7 +106,7 @@ public class Dashboard extends javax.swing.JFrame {
 
     }
 
-   Dashboard(int id_user) {
+   public Dashboard(int id_user) {
   initComponents();
 
         this.setLocationRelativeTo(null);

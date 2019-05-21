@@ -19,12 +19,12 @@ import javax.swing.Timer;
  */
 public final class Ruleta extends javax.swing.JFrame {
 
-    int id_user =0;
-    ArrayList<String> vCategorias = bd.conexiones.verCategorias();
-    DefaultListModel modeloLista;
-    String finalcategoria="";
+    private int id_user =0;
+    private ArrayList<String> vCategorias = bd.conexiones.verCategorias();
+    private DefaultListModel modeloLista;
+    private String finalcategoria="";
 
-    Ruleta(int iduser) {
+    public Ruleta(int iduser) {
     initComponents();
     id_user = iduser;
         this.setLocationRelativeTo(null);

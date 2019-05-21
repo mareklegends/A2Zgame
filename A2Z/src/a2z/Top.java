@@ -16,7 +16,7 @@ import javax.swing.table.DefaultTableModel;
 public class Top extends javax.swing.JFrame {
    
     
-    ArrayList<Jugadores> vJugadoresNOADMIN =  bd.conexiones.topJugadores();
+    private ArrayList<Jugadores> vJugadoresNOADMIN =  bd.conexiones.topJugadores();
     
 
     /**
