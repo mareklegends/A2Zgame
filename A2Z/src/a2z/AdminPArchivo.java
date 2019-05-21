@@ -14,27 +14,26 @@ import java.util.ArrayList;
  */
 public class AdminPArchivo extends javax.swing.JFrame {
 
-     private ArrayList<String> vCategorias = bd.conexiones.verCategorias();
-    
+    private ArrayList<String> vCategorias = bd.conexiones.verCategorias();
+
     /**
      * Creates new form AdminPArchivo
      */
     public AdminPArchivo() {
         initComponents();
-        
+
         this.setLocationRelativeTo(null);
         this.setTitle("A2Z Game");
         this.getContentPane().setBackground(Color.decode("#1f2029"));
         jLabel1.setForeground(Color.decode("#fafafa"));
-         jLabel2.setForeground(Color.decode("#fafafa"));
-         String datos="";
-          for (int i = 0; i < vCategorias.size(); i++) {
-              datos+="["+i+"] "+vCategorias.get(i).toString()+" ";
-            
-        }
-           jLabel2.setText(datos);
+        jLabel2.setForeground(Color.decode("#fafafa"));
+        String datos = "";
+        for (int i = 0; i < vCategorias.size(); i++) {
+            datos += "[" + i + "] " + vCategorias.get(i).toString() + " ";
 
-        
+        }
+        jLabel2.setText(datos);
+
     }
 
     /**
@@ -103,7 +102,7 @@ public class AdminPArchivo extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-         Admin a = new Admin();
+        Admin a = new Admin();
         a.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed

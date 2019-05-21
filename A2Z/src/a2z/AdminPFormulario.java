@@ -7,6 +7,7 @@
 package a2z;
 
 import java.awt.Color;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -216,6 +217,11 @@ public class AdminPFormulario extends javax.swing.JFrame {
         
         bd.conexiones.ponerPreguntas(pregunta, r1, r2, r3, codrespuestabuena, codcat);
         
+        JOptionPane.showMessageDialog(null, "Pregunta añadida");
+        
+        AdminPFormulario apf = new AdminPFormulario();
+        apf.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
