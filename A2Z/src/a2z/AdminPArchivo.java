@@ -6,7 +6,9 @@
 package a2z;
 
 import java.awt.Color;
+import java.io.File;
 import java.util.ArrayList;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -34,6 +36,14 @@ public class AdminPArchivo extends javax.swing.JFrame {
         }
         jLabel2.setText(datos);
 
+        //para leer el archivo
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("txt");
+        jFileChooser1.setFileFilter(filter);
+        int returnVal = jFileChooser1.showOpenDialog(this);
+        if (returnVal == jFileChooser1.APPROVE_OPTION) {
+            System.out.println("You chose to open this file: "
+                    + jFileChooser1.getSelectedFile().getName());
+        }
     }
 
     /**
