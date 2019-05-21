@@ -309,7 +309,7 @@ public class conexiones {
             ps2.setInt(1, (puntos + 10));
             ps2.setInt(2, (vidas + 1));
             ps2.setInt(3, cod_usuario);
-            int rs2 = ps2.executeUpdate();
+            ps2.executeUpdate();
 
             // ... 
         } catch (SQLException e) {
@@ -350,12 +350,12 @@ public class conexiones {
                  PreparedStatement ps2 = (PreparedStatement) conn.prepareStatement("UPDATE usuarios SET usuarios.vidas=? WHERE usuarios.codusuarios=?");
             ps2.setInt(1, (vidas + 1));
             ps2.setInt(2, cod_usuario);
-            int rs2 = ps2.executeUpdate();
+            ps2.executeUpdate();
             }else{
-                PreparedStatement ps2 = (PreparedStatement) conn.prepareStatement("UPDATE usuarios SET usuarios.vidas=? WHERE usuarios.codusuarios=?");
-            ps2.setInt(1, (vidas - 1));
-            ps2.setInt(2, cod_usuario);
-            int rs2 = ps2.executeUpdate(); 
+                PreparedStatement ps3 = (PreparedStatement) conn.prepareStatement("UPDATE usuarios SET usuarios.vidas=? WHERE usuarios.codusuarios=?");
+            ps3.setInt(1, (vidas - 1));
+            ps3.setInt(2, cod_usuario);
+            ps3.executeUpdate(); 
             }
 
            
@@ -423,7 +423,7 @@ public class conexiones {
             ps2.setString(1, nombre);
             ps2.setString(2, pass);
             ps2.setString(3, fecha);
-            int rs2 = ps2.executeUpdate();
+            ps2.executeUpdate();
 
             
             PreparedStatement ps3 = (PreparedStatement) conn.prepareStatement("SELECT usuarios.codusuarios FROM usuarios WHERE usuarios.nickname LIKE ?");
