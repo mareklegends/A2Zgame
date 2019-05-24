@@ -31,7 +31,6 @@ public class Pregunta extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setTitle("A2Z Game");
         this.getContentPane().setBackground(Color.decode("#1f2029"));
-        jLabel2.setForeground(Color.decode("#fafafa"));
         jTextArea1.setBackground(Color.decode("#1f2029"));
         jTextArea1.setForeground(Color.decode("#fafafa"));
 
@@ -45,7 +44,6 @@ public class Pregunta extends javax.swing.JFrame {
         jButtonRespuesta3.setBackground(Color.WHITE);
         jTextArea1.setLineWrap(true);
         jTextArea1.setEditable(false);
-        jLabelnt.setText("n");
         jTextArea1.setText("¿Por qué razón “separado” se escribe todo junto y “todo junto” se escribe separado?");
     }
 
@@ -73,7 +71,6 @@ public class Pregunta extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setTitle("A2Z Game");
         this.getContentPane().setBackground(Color.decode("#1f2029"));
-        jLabel2.setForeground(Color.decode("#fafafa"));
         jTextArea1.setBackground(Color.decode("#1f2029"));
         jTextArea1.setForeground(Color.decode("#fafafa"));
 
@@ -87,45 +84,10 @@ public class Pregunta extends javax.swing.JFrame {
         jButtonRespuesta3.setBackground(Color.WHITE);
         jTextArea1.setLineWrap(true);
         jTextArea1.setEditable(false);
-        jLabelnt.setText("n");
 
     }  
 
-    /*
-    public void tiempo() {
-        boolean bandera = false;
-        int tiempo = 0;
-        String n = "";
-        while (!bandera) {
-            if (jProgressBar1.getValue() == 1200) {
-                bandera = true;  
-                Dashboard d2 = new Dashboard();
-                d2.setVisible(true);
-                this.dispose();
-            } else {
-                dormir();
-                tiempo+=5;
-                tiemposuma(tiempo); 
-                n=Integer.toString(tiempo);
-                jLabelnt.setText(n);
-                System.out.println(tiempo);
-            }
-        }
-        
-    }
-
-    public void tiemposuma(int tiempo){
-        jProgressBar1.setValue(tiempo);
-    }
-    
-    private void dormir() {
-        try {
-            Thread.sleep(80);
-        } catch (InterruptedException ex) {
-            Logger.getLogger(Ruleta.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-     */
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -138,12 +100,9 @@ public class Pregunta extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jButtonRespuesta1 = new javax.swing.JButton();
         jButtonRespuesta2 = new javax.swing.JButton();
-        jProgressBar1 = new javax.swing.JProgressBar();
-        jLabel2 = new javax.swing.JLabel();
         jButtonRespuesta3 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        jLabelnt = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -166,10 +125,6 @@ public class Pregunta extends javax.swing.JFrame {
             }
         });
 
-        jProgressBar1.setMaximum(1200);
-
-        jLabel2.setText("Tiempo");
-
         jButtonRespuesta3.setText("Respuesta 3");
         jButtonRespuesta3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -182,8 +137,6 @@ public class Pregunta extends javax.swing.JFrame {
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        jLabelnt.setText("jLabel1");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -191,30 +144,18 @@ public class Pregunta extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE)
                     .addComponent(jSeparator1)
                     .addComponent(jButtonRespuesta1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButtonRespuesta2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonRespuesta3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabelnt)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
-                        .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jButtonRespuesta3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel2)
-                        .addComponent(jLabelnt)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(9, 9, 9)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -318,9 +259,6 @@ public class Pregunta extends javax.swing.JFrame {
     private javax.swing.JButton jButtonRespuesta1;
     private javax.swing.JButton jButtonRespuesta2;
     private javax.swing.JButton jButtonRespuesta3;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabelnt;
-    private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextArea jTextArea1;
