@@ -28,6 +28,7 @@ public class conexiones {
 
     /**
      * Transfoma un string a date
+     *
      * @param fecha
      * @return date
      */
@@ -44,6 +45,7 @@ public class conexiones {
 
     /**
      * Mediante una variable se obtiene la informacion de un usuario
+     *
      * @param cod_usuario
      * @return ArrayList de jugadores
      */
@@ -91,7 +93,9 @@ public class conexiones {
     }
 
     /**
-     * Muestra el top de jugadores con orden descendentes de los puntos que tienen
+     * Muestra el top de jugadores con orden descendentes de los puntos que
+     * tienen
+     *
      * @return ArrayList de jugadores
      */
     public static ArrayList<Jugadores> topJugadores() {
@@ -138,6 +142,7 @@ public class conexiones {
 
     /**
      * Muestra las categorias de las preguntas
+     *
      * @return ArrayList de las categorias de las preguntas
      */
     public static ArrayList<String> verCategorias() {
@@ -182,10 +187,13 @@ public class conexiones {
     }
 
     /**
-     * Mediante dos variables una de usuario y otra de cat, busca una pregunta pregunta de esa categoria que no haya respondido correctamente
+     * Mediante dos variables una de usuario y otra de cat, busca una pregunta
+     * pregunta de esa categoria que no haya respondido correctamente
+     *
      * @param usario
      * @param cat
-     * @return ArrayList de preguntas con una pregunta que el usario no ha acertado de la categoria precisa
+     * @return ArrayList de preguntas con una pregunta que el usario no ha
+     * acertado de la categoria precisa
      */
     public static ArrayList<Preguntas> jugarPregunta(int usario, String cat) {
         ArrayList<Preguntas> vPregunta = new ArrayList();
@@ -232,11 +240,11 @@ public class conexiones {
         return vPregunta;
     }
 
-   
-
     /**
      * Muestra la cantidad de usuarios que hay registrados en A2Z sin ser admin
-     * @return devuelve una variable int con el numero de usuarios que no son admin
+     *
+     * @return devuelve una variable int con el numero de usuarios que no son
+     * admin
      */
     public static int contadorUsuarios() {
         int numero = 0;
@@ -278,7 +286,9 @@ public class conexiones {
 
     /**
      * Muestra la cantidad de preguntas que tiene A2Z en sus bases de datos
-     * @return devuelve una variable int del numero de preguntas que hay en la base de datos
+     *
+     * @return devuelve una variable int del numero de preguntas que hay en la
+     * base de datos
      */
     public static int contadorPreguntas() {
         int numero = 0;
@@ -320,7 +330,9 @@ public class conexiones {
     }
 
     /**
-     * Aumenta las vidas y los puntos de un usario mediante su codigo de usario cuando este ha respondido un pregunta bien
+     * Aumenta las vidas y los puntos de un usario mediante su codigo de usario
+     * cuando este ha respondido un pregunta bien
+     *
      * @param cod_usuario
      */
     public static void darpuntosyvidas(int cod_usuario) {
@@ -367,7 +379,10 @@ public class conexiones {
     }
 
     /**
-     * Quita vidas al usario mediante su codigo de usario cuando responde una pregunta mal y si no tiene vidas para quitar se le pone 1 vida para que pueda seguir jugando
+     * Quita vidas al usario mediante su codigo de usario cuando responde una
+     * pregunta mal y si no tiene vidas para quitar se le pone 1 vida para que
+     * pueda seguir jugando
+     *
      * @param cod_usuario
      */
     public static void quitarvidas(int cod_usuario) {
@@ -420,7 +435,9 @@ public class conexiones {
     }
 
     /**
-     * Añade en la base de datos que un usario ha acertado una pregunta y esta pregunta a este usario no se le vuelve a repetir
+     * Añade en la base de datos que un usario ha acertado una pregunta y esta
+     * pregunta a este usario no se le vuelve a repetir
+     *
      * @param cod_usuario
      * @param cod_pregunta
      */
@@ -458,6 +475,7 @@ public class conexiones {
 
     /**
      * Registra el usario en la aplicacion de A2Z
+     *
      * @param nombre
      * @param pass
      * @param fecha
@@ -480,18 +498,14 @@ public class conexiones {
             ps2.setString(1, nombre);
             ps2.setString(2, pass);
             ps2.setString(3, fecha);
-            if (ps2.executeUpdate()>0){
+            if (ps2.executeUpdate() > 0) {
                 PreparedStatement ps3 = (PreparedStatement) conn.prepareStatement("SELECT usuarios.codusuarios FROM usuarios WHERE usuarios.nickname LIKE ?");
                 ps3.setString(1, nombre);
                 ResultSet rs = ps3.executeQuery();
-                 while (rs.next()) {
-                cod_user = rs.getInt(1);
+                while (rs.next()) {
+                    cod_user = rs.getInt(1);
+                }
             }
-            }
-
-            
-
-           
 
             // ... 
         } catch (SQLException e) {
@@ -509,7 +523,9 @@ public class conexiones {
     }
 
     /**
-     * Esta funcion ayuda a A2Z depende del codigo que devuelve te mando para el juego o para el panel de administracion
+     * Esta funcion ayuda a A2Z depende del codigo que devuelve te mando para el
+     * juego o para el panel de administracion
+     *
      * @param nombre
      * @param pass
      * @return ArrayList de HelpLogin
@@ -556,6 +572,7 @@ public class conexiones {
 
     /**
      * Añade preguntas a la base de datos de A2Z
+     *
      * @param pregunta
      * @param r1
      * @param r2
@@ -601,6 +618,7 @@ public class conexiones {
 
     /**
      * Leer las preguntas de una archivo y las añade a la base de datos de A2Z
+     *
      * @param f
      */
     public static void nuevasPreguntasArchivo(File f) {
