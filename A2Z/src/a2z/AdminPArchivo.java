@@ -37,7 +37,7 @@ public class AdminPArchivo extends javax.swing.JFrame {
         File abre = null;
         //para leer el archivo
         try {
-            jFileChooser1.showOpenDialog(this);
+            jFileChooser1.showOpenDialog(null);
             abre = jFileChooser1.getSelectedFile();
 
             String formatoarchivo = ".a2z";
@@ -45,18 +45,23 @@ public class AdminPArchivo extends javax.swing.JFrame {
                 System.out.println("El formato del archivo es valido >> " + abre.getName());
                 bd.conexiones.nuevasPreguntasArchivo(abre);
                 JOptionPane.showMessageDialog(null, "Las preguntas se añadieron correctamente");
+                 this.dispose();
             } else {
                 System.out.println("El formato del archivo no es valido >> " + abre.getName());
-                JOptionPane.showMessageDialog(null, "El formato del archivo no es valido");             
+                JOptionPane.showMessageDialog(null, "El formato del archivo no es valido");   
+                 this.dispose();
             }
         } catch (Exception e) {
             System.out.println("Error al leer el archivo");          
 
         }finally{
-               Admin a = new Admin();
-                a.setVisible(true);
-                this.dispose();
+               //Admin a = new Admin();
+              // a.setVisible(true);
+               //a.setLocationRelativeTo(null);
+              
+                
         }
+        this.dispose();
 
     }
 
