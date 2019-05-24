@@ -5,6 +5,7 @@ import a2z.Jugadores;
 import a2z.Preguntas;
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
+import java.io.File;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -522,6 +523,10 @@ public class conexiones {
             }
         }
 
+    }
+    
+    public static void nuevasPreguntasArchivo(File f){
+        
     }
 
 }

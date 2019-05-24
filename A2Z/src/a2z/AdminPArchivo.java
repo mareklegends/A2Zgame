@@ -8,6 +8,7 @@ package a2z;
 import java.awt.Color;
 import java.io.File;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
@@ -35,12 +36,27 @@ public class AdminPArchivo extends javax.swing.JFrame {
 
         }
         jLabel2.setText(datos);
-        
-        //para leer el archivo
 
+        //para leer el archivo
         jFileChooser1.showOpenDialog(this);
         File abre = jFileChooser1.getSelectedFile();
-        
+
+        String formatoarchivo = ".a2z";
+        if (abre.getName().substring(abre.getName().length() - 4, abre.getName().length()).equalsIgnoreCase(formatoarchivo)) {
+            System.out.println("El formato del archivo es valido >> " + abre.getName());
+            bd.conexiones.nuevasPreguntasArchivo(abre);
+            JOptionPane.showMessageDialog(null, "Las preguntas se añadieron correctamente");
+            AdminPArchivo apa = new AdminPArchivo();
+            apa.setVisible(true);
+            this.dispose();
+        } else {
+            System.out.println("El formato del archivo no es valido >> " + abre.getName());
+            JOptionPane.showMessageDialog(null, "El formato del archivo no es valido");
+            AdminPArchivo apa = new AdminPArchivo();
+            apa.setVisible(true);
+            this.dispose();
+        }
+
     }
 
     /**
