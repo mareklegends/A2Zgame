@@ -84,6 +84,11 @@ public class Index extends javax.swing.JFrame {
         jLabel1.setText("R E G I S T E R");
 
         jPasswordFieldLogin_clave.setText("jPasswordField1");
+        jPasswordFieldLogin_clave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPasswordFieldLogin_claveActionPerformed(evt);
+            }
+        });
 
         jButtonIniciarse.setText("GO");
         jButtonIniciarse.addActionListener(new java.awt.event.ActionListener() {
@@ -101,6 +106,11 @@ public class Index extends javax.swing.JFrame {
         jLabel5.setText("Password");
 
         jPasswordFieldRegister_clave.setText("jPasswordField1");
+        jPasswordFieldRegister_clave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPasswordFieldRegister_claveActionPerformed(evt);
+            }
+        });
 
         jLabel6.setText(" Birthdate");
 
@@ -145,38 +155,39 @@ public class Index extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(131, 131, 131))
             .addGroup(layout.createSequentialGroup()
-                .addGap(93, 93, 93)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jSeparator1)
-                    .addComponent(jLabel3)
-                    .addComponent(jTextFieldLogin_usuario)
-                    .addComponent(jPasswordFieldLogin_clave, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
-                    .addComponent(jLabel2))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(51, 51, 51)
-                        .addComponent(jLabel8))
+                        .addGap(93, 93, 93)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jSeparator1)
+                            .addComponent(jLabel3)
+                            .addComponent(jTextFieldLogin_usuario)
+                            .addComponent(jPasswordFieldLogin_clave, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
+                            .addComponent(jLabel2))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(51, 51, 51)
+                                .addComponent(jLabel8))
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel9)))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel4)
+                                .addComponent(jLabel5)
+                                .addComponent(jTextFieldRegister_usuario)
+                                .addComponent(jPasswordFieldRegister_clave)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel6)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                                    .addComponent(jLabel7))
+                                .addComponent(jTextFieldRegister_fecha))
+                            .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel9)))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel4)
-                        .addComponent(jLabel5)
-                        .addComponent(jTextFieldRegister_usuario)
-                        .addComponent(jPasswordFieldRegister_clave)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel6)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
-                            .addComponent(jLabel7))
-                        .addComponent(jTextFieldRegister_fecha))
-                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(293, 293, 293)
+                        .addComponent(jButton1)))
                 .addContainerGap(56, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(293, 293, 293)
-                .addComponent(jButton1)
-                .addGap(29, 286, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -224,12 +235,11 @@ public class Index extends javax.swing.JFrame {
                         .addGap(25, 25, 25)
                         .addComponent(jButtonIniciarse)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton1)
-                        .addContainerGap(28, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButton1))
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(jButtonRegister_go)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(jButtonRegister_go)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -278,6 +288,16 @@ public class Index extends javax.swing.JFrame {
         this.dispose();
 
     }//GEN-LAST:event_jButtonRegister_goActionPerformed
+
+    private void jPasswordFieldLogin_claveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordFieldLogin_claveActionPerformed
+        // TODO add your handling code here:
+        jPasswordFieldLogin_clave.setText("");
+    }//GEN-LAST:event_jPasswordFieldLogin_claveActionPerformed
+
+    private void jPasswordFieldRegister_claveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordFieldRegister_claveActionPerformed
+        // TODO add your handling code here:
+         jPasswordFieldRegister_clave.setText("");
+    }//GEN-LAST:event_jPasswordFieldRegister_claveActionPerformed
 
     /**
      * @param args the command line arguments
