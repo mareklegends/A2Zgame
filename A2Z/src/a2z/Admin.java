@@ -18,7 +18,9 @@ import javax.swing.JOptionPane;
  * @author marek
  */
 public class Admin extends javax.swing.JFrame {
-private ArrayList<String> vCategorias = bd.conexiones.verCategorias();
+
+    private ArrayList<String> vCategorias = bd.conexiones.verCategorias();
+
     /**
      * Creates new form Admin
      */
@@ -155,7 +157,7 @@ private ArrayList<String> vCategorias = bd.conexiones.verCategorias();
 
     private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
         // TODO add your handling code here:
-        
+
         String datos = "Total de usuarios: " + contadorUsuarios();
         JOptionPane.showMessageDialog(null, datos);
     }//GEN-LAST:event_jMenu1MouseClicked
@@ -181,19 +183,18 @@ private ArrayList<String> vCategorias = bd.conexiones.verCategorias();
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
-       // AdminPArchivo apa = new AdminPArchivo();
+        // AdminPArchivo apa = new AdminPArchivo();
         //apa.setVisible(true);
         //this.dispose();
         JFileChooser jFileChooser1 = new JFileChooser();
-        
-          String datos = "Aviso, las categorias de la preguntas van con un código no con el nombre de la categoría \n";
+
+        String datos = "Aviso, las categorias de la preguntas van con un código no con el nombre de la categoría \n";
         for (int i = 0; i < vCategorias.size(); i++) {
             datos += "[" + i + "] " + vCategorias.get(i).toString() + " ";
 
         }
         JOptionPane.showMessageDialog(null, datos);
-        
-        
+
         File abre = null;
         //para leer el archivo
         try {
@@ -207,19 +208,13 @@ private ArrayList<String> vCategorias = bd.conexiones.verCategorias();
                 JOptionPane.showMessageDialog(null, "Las preguntas se añadieron correctamente");
             } else {
                 System.out.println("El formato del archivo no es valido >> " + abre.getName());
-                JOptionPane.showMessageDialog(null, "El formato del archivo no es valido");   
+                JOptionPane.showMessageDialog(null, "El formato del archivo no es valido");
             }
         } catch (Exception e) {
-            System.out.println("Error al leer el archivo");          
+            System.out.println("Error al leer el archivo");
 
-        }finally{
-               Admin a = new Admin();
-              a.setVisible(true);
-               a.setLocationRelativeTo(null);
-              
-                
         }
-        
+
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
