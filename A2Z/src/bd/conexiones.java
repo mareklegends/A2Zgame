@@ -532,31 +532,33 @@ public class conexiones {
     }
 
     public static void nuevasPreguntasArchivo(File f) {
-      
-      FileReader fr = null;
-      BufferedReader br = null;
 
-      try {
-        
-         fr = new FileReader (f);
-         br = new BufferedReader(fr);
+        FileReader fr = null;
+        BufferedReader br = null;
 
-         // Lectura del fichero
-         String linea;
-         while((linea=br.readLine())!=null)
-            System.out.println(linea);
-      }
-      catch(Exception e){
-         e.printStackTrace();
-      }finally{
-         try{                    
-            if( null != fr ){   
-               fr.close();     
-            }                  
-         }catch (Exception e2){ 
-            e2.printStackTrace();
-         }
-      }
-}
+        try {
+
+            fr = new FileReader(f);
+            br = new BufferedReader(fr);
+
+            // Lectura del fichero
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                System.out.println(linea);
+                String[] vPreguntanueva = linea.split("@_@");
+                ponerPreguntas(vPreguntanueva[0].toString(), vPreguntanueva[1].toString(), vPreguntanueva[2].toString(), vPreguntanueva[3].toString(), Integer.parseInt(vPreguntanueva[4].toString()), Integer.parseInt(vPreguntanueva[5].toString()));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (null != fr) {
+                    fr.close();
+                }
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+        }
+    }
 
 }
