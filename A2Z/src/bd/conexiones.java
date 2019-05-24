@@ -109,7 +109,7 @@ public class conexiones {
             conn = (Connection) DriverManager.getConnection(url, user, password);
             // more processing here
 
-            String sql = "SELECT * FROM usuarios WHERE admin=0 group by puntos DESC LIMIT 10";
+            String sql = "SELECT * FROM usuarios WHERE admin=0 group by puntos DESC";
             PreparedStatement ps = (PreparedStatement) conn.prepareStatement(sql);
             ResultSet rs = ps.executeQuery(sql);
 

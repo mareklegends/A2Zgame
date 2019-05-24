@@ -1,4 +1,3 @@
-
 package interfazgame;
 
 import interfazgame.Dashboard;
@@ -9,13 +8,12 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  * Esta ventana muestra el top de jugadores de A2Z
+ *
  * @author alumno
  */
 public class Top extends javax.swing.JFrame {
-   
-    
-    private ArrayList<Jugadores> vJugadoresNOADMIN =  bd.conexiones.topJugadores();
-    
+
+    private ArrayList<Jugadores> vJugadoresNOADMIN = bd.conexiones.topJugadores();
 
     /**
      * Creates new form Top
@@ -27,28 +25,30 @@ public class Top extends javax.swing.JFrame {
         this.getContentPane().setBackground(Color.decode("#1f2029"));
         jLabel1.setForeground(Color.decode("#fafafa"));
         jLabel1.setForeground(Color.decode("#fafafa"));
-        
+
         jButton1.setForeground(Color.BLACK);
         jButton1.setBackground(Color.WHITE);
-        
-       DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
-       
-       Object[] fila = new Object[modelo.getColumnCount()];
-       
+
+        DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
+
+        Object[] fila = new Object[modelo.getColumnCount()];
+
         jTable1.getColumnModel().getColumn(0).setHeaderValue("Nº");
         jTable1.getColumnModel().getColumn(1).setHeaderValue("Nombre");
         jTable1.getColumnModel().getColumn(2).setHeaderValue("Puntos");
-         jTable1.removeColumn(jTable1.getColumnModel().getColumn(3));
-        
-    jTable1.revalidate();
-       
+        jTable1.removeColumn(jTable1.getColumnModel().getColumn(3));
+
+        modelo.setRowCount(0);
+
+        jTable1.revalidate();
+
         for (int i = 0; i < vJugadoresNOADMIN.size(); i++) {
-            fila[0] = (i+1);
+            fila[0] = (i + 1);
             fila[1] = vJugadoresNOADMIN.get(i).getNombre();
             fila[2] = vJugadoresNOADMIN.get(i).getPuntos();
             modelo.addRow(fila);
         }
-        
+
     }
 
     /**
@@ -93,6 +93,11 @@ public class Top extends javax.swing.JFrame {
         });
 
         jButtonSacarpdf.setText("PDF");
+        jButtonSacarpdf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSacarpdfActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -136,10 +141,15 @@ public class Top extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-          Dashboard d = new Dashboard();
+        Dashboard d = new Dashboard();
         d.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButtonSacarpdfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSacarpdfActionPerformed
+        // TODO add your handling code here:
+        //generar pdf top jugadores
+    }//GEN-LAST:event_jButtonSacarpdfActionPerformed
 
     /**
      * @param args the command line arguments
