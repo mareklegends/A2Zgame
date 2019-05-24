@@ -464,7 +464,7 @@ public class conexiones {
      * @return devuelve el codigo del usuario registrado
      */
     public static int regitrarse(String nombre, String pass, String fecha) {
-        int cod_user = 0;
+        int cod_user = -1;
         Connection conn = null;
         try {
             // db parameters
@@ -480,15 +480,18 @@ public class conexiones {
             ps2.setString(1, nombre);
             ps2.setString(2, pass);
             ps2.setString(3, fecha);
-            ps2.executeUpdate();
-
-            PreparedStatement ps3 = (PreparedStatement) conn.prepareStatement("SELECT usuarios.codusuarios FROM usuarios WHERE usuarios.nickname LIKE ?");
-            ps3.setString(1, nombre);
-            ResultSet rs = ps3.executeQuery();
-
-            while (rs.next()) {
+            if (ps2.executeUpdate()>0){
+                PreparedStatement ps3 = (PreparedStatement) conn.prepareStatement("SELECT usuarios.codusuarios FROM usuarios WHERE usuarios.nickname LIKE ?");
+                ps3.setString(1, nombre);
+                ResultSet rs = ps3.executeQuery();
+                 while (rs.next()) {
                 cod_user = rs.getInt(1);
             }
+            }
+
+            
+
+           
 
             // ... 
         } catch (SQLException e) {

@@ -321,10 +321,14 @@ public class Index extends javax.swing.JFrame {
         } else {
         
         int id_user = bd.conexiones.regitrarse(nombre, pass, fecha);
-
-        Dashboard d = new Dashboard(id_user);
+        if (id_user!=-1){
+            Dashboard d = new Dashboard(id_user);
         d.setVisible(true);
         this.dispose();
+        }else{
+            JOptionPane.showMessageDialog(null, "Usuario ya existe");
+        }
+        
   }  
     }//GEN-LAST:event_jButtonRegister_goActionPerformed
 
