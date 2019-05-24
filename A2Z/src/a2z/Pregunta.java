@@ -49,6 +49,11 @@ public class Pregunta extends javax.swing.JFrame {
         jTextArea1.setText("¿Por qué razón “separado” se escribe todo junto y “todo junto” se escribe separado?");
     }
 
+    /**
+     *
+     * @param id_user
+     * @param ncategoria
+     */
     public Pregunta(int id_user, String ncategoria) {
         initComponents();
         iduser = id_user;

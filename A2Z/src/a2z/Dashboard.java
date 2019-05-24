@@ -106,7 +106,11 @@ public class Dashboard extends javax.swing.JFrame {
 
     }
 
-   public Dashboard(int id_user) {
+    /**
+     *
+     * @param id_user
+     */
+    public Dashboard(int id_user) {
         initComponents();
         iduser = id_user;
         this.setLocationRelativeTo(null);

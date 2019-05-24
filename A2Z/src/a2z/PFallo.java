@@ -23,6 +23,10 @@ private int id_user = 0;
         this.getContentPane().setBackground(Color.decode("#f44141"));
     }
 
+    /**
+     *
+     * @param iduser
+     */
     public PFallo(int iduser) {
         
           initComponents();

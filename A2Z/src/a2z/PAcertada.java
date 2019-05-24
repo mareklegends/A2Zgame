@@ -25,6 +25,11 @@ public class PAcertada extends javax.swing.JFrame {
         this.getContentPane().setBackground(Color.decode("#42f471"));
     }
 
+    /**
+     *
+     * @param iduser
+     * @param codpregunta
+     */
     public PAcertada(int iduser, int codpregunta) {
         
         initComponents();

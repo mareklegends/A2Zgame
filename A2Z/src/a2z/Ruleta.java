@@ -24,6 +24,10 @@ public final class Ruleta extends javax.swing.JFrame {
     private DefaultListModel modeloLista;
     private String finalcategoria="";
 
+    /**
+     *
+     * @param iduser
+     */
     public Ruleta(int iduser) {
     initComponents();
     id_user = iduser;
