@@ -5,7 +5,11 @@ import a2z.Jugadores;
 import a2z.Preguntas;
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,6 +17,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -524,9 +530,33 @@ public class conexiones {
         }
 
     }
-    
-    public static void nuevasPreguntasArchivo(File f){
+
+    public static void nuevasPreguntasArchivo(File f) {
+      
+      FileReader fr = null;
+      BufferedReader br = null;
+
+      try {
         
-    }
+         fr = new FileReader (f);
+         br = new BufferedReader(fr);
+
+         // Lectura del fichero
+         String linea;
+         while((linea=br.readLine())!=null)
+            System.out.println(linea);
+      }
+      catch(Exception e){
+         e.printStackTrace();
+      }finally{
+         try{                    
+            if( null != fr ){   
+               fr.close();     
+            }                  
+         }catch (Exception e2){ 
+            e2.printStackTrace();
+         }
+      }
+}
 
 }

@@ -28,33 +28,39 @@ public class AdminPArchivo extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setTitle("A2Z Game");
         this.getContentPane().setBackground(Color.decode("#1f2029"));
-        jLabel1.setForeground(Color.decode("#fafafa"));
-        jLabel2.setForeground(Color.decode("#fafafa"));
-        String datos = "";
+        String datos = "Aviso, las categorias de la preguntas van con un código no con el nombre de la categoría \n";
         for (int i = 0; i < vCategorias.size(); i++) {
             datos += "[" + i + "] " + vCategorias.get(i).toString() + " ";
 
         }
-        jLabel2.setText(datos);
-
+        JOptionPane.showMessageDialog(null, datos);
+        File abre = null;
         //para leer el archivo
-        jFileChooser1.showOpenDialog(this);
-        File abre = jFileChooser1.getSelectedFile();
+        try {
+            jFileChooser1.showOpenDialog(this);
+            abre = jFileChooser1.getSelectedFile();
 
-        String formatoarchivo = ".a2z";
-        if (abre.getName().substring(abre.getName().length() - 4, abre.getName().length()).equalsIgnoreCase(formatoarchivo)) {
-            System.out.println("El formato del archivo es valido >> " + abre.getName());
-            bd.conexiones.nuevasPreguntasArchivo(abre);
-            JOptionPane.showMessageDialog(null, "Las preguntas se añadieron correctamente");
-            AdminPArchivo apa = new AdminPArchivo();
-            apa.setVisible(true);
+            String formatoarchivo = ".a2z";
+            if (abre.getName().substring(abre.getName().length() - 4, abre.getName().length()).equalsIgnoreCase(formatoarchivo)) {
+                System.out.println("El formato del archivo es valido >> " + abre.getName());
+                bd.conexiones.nuevasPreguntasArchivo(abre);
+                JOptionPane.showMessageDialog(null, "Las preguntas se añadieron correctamente");
+                Admin a = new Admin();
+                a.setVisible(true);
+                this.dispose();
+            } else {
+                System.out.println("El formato del archivo no es valido >> " + abre.getName());
+                JOptionPane.showMessageDialog(null, "El formato del archivo no es valido");
+                Admin a = new Admin();
+                a.setVisible(true);
+                this.dispose();
+            }
+        } catch (Exception e) {
+            System.out.println("Error al leer el archivo");
+            Admin a = new Admin();
+            a.setVisible(true);
             this.dispose();
-        } else {
-            System.out.println("El formato del archivo no es valido >> " + abre.getName());
-            JOptionPane.showMessageDialog(null, "El formato del archivo no es valido");
-            AdminPArchivo apa = new AdminPArchivo();
-            apa.setVisible(true);
-            this.dispose();
+
         }
 
     }
@@ -69,22 +75,8 @@ public class AdminPArchivo extends javax.swing.JFrame {
     private void initComponents() {
 
         jFileChooser1 = new javax.swing.JFileChooser();
-        jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jLabel1.setText("Aviso, las categorias de la preguntas van con un código no con el nombre de la categoría");
-
-        jButton1.setText("Ir al AdminPanel");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        jLabel2.setText("jLabel2");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -92,43 +84,19 @@ public class AdminPArchivo extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jFileChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addGap(30, 30, 30))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel1))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jFileChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton1)
-                .addGap(11, 11, 11)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                .addComponent(jFileChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jFileChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, 509, Short.MAX_VALUE)
                 .addGap(32, 32, 32))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        Admin a = new Admin();
-        a.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -166,9 +134,6 @@ public class AdminPArchivo extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JFileChooser jFileChooser1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }

@@ -7,6 +7,7 @@ package a2z;
 
 import java.awt.Color;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -84,6 +85,11 @@ public class Index extends javax.swing.JFrame {
         jLabel1.setText("R E G I S T E R");
 
         jPasswordFieldLogin_clave.setText("jPasswordField1");
+        jPasswordFieldLogin_clave.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPasswordFieldLogin_claveMouseClicked(evt);
+            }
+        });
         jPasswordFieldLogin_clave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jPasswordFieldLogin_claveActionPerformed(evt);
@@ -91,6 +97,11 @@ public class Index extends javax.swing.JFrame {
         });
 
         jButtonIniciarse.setText("GO");
+        jButtonIniciarse.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonIniciarseMouseClicked(evt);
+            }
+        });
         jButtonIniciarse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonIniciarseActionPerformed(evt);
@@ -106,6 +117,11 @@ public class Index extends javax.swing.JFrame {
         jLabel5.setText("Password");
 
         jPasswordFieldRegister_clave.setText("jPasswordField1");
+        jPasswordFieldRegister_clave.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPasswordFieldRegister_claveMouseClicked(evt);
+            }
+        });
         jPasswordFieldRegister_clave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jPasswordFieldRegister_claveActionPerformed(evt);
@@ -251,23 +267,32 @@ public class Index extends javax.swing.JFrame {
 
     private void jButtonIniciarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIniciarseActionPerformed
         // TODO add your handling code here:
-        int admin = 0;        
-        String nombre = jTextFieldLogin_usuario.getText();
-        String pass = new String(jPasswordFieldLogin_clave.getPassword());
-        vLogin = bd.conexiones.iniciarse(nombre, pass);
-        for (int i = 0; i < vLogin.size(); i++) {
-            admin = vLogin.get(i).getAdmin();
-            id_user = vLogin.get(i).getCoduser();
-            break;
-        }
-        if (admin == 1) {
-            Admin a = new Admin();
-            a.setVisible(true);
-            this.dispose();
+        int admin = 0;
+        String nombre = "";
+        String pass = "";
+
+        nombre = jTextFieldLogin_usuario.getText();
+        pass = new String(jPasswordFieldLogin_clave.getPassword());
+        
+        if (nombre.equalsIgnoreCase(" ") && pass.equalsIgnoreCase(" ")) {
+            JOptionPane.showMessageDialog(null, "Rellene los campos del formulario");
         } else {
-            Dashboard d = new Dashboard(id_user);
-            d.setVisible(true);
-            this.dispose();
+
+            vLogin = bd.conexiones.iniciarse(nombre, pass);
+            for (int i = 0; i < vLogin.size(); i++) {
+                admin = vLogin.get(i).getAdmin();
+                id_user = vLogin.get(i).getCoduser();
+                break;
+            }
+            if (admin == 1) {
+                Admin a = new Admin();
+                a.setVisible(true);
+                this.dispose();
+            } else {
+                Dashboard d = new Dashboard(id_user);
+                d.setVisible(true);
+                this.dispose();
+            }
         }
     }//GEN-LAST:event_jButtonIniciarseActionPerformed
 
@@ -291,13 +316,29 @@ public class Index extends javax.swing.JFrame {
 
     private void jPasswordFieldLogin_claveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordFieldLogin_claveActionPerformed
         // TODO add your handling code here:
-        jPasswordFieldLogin_clave.setText("");
+
     }//GEN-LAST:event_jPasswordFieldLogin_claveActionPerformed
 
     private void jPasswordFieldRegister_claveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordFieldRegister_claveActionPerformed
         // TODO add your handling code here:
-         jPasswordFieldRegister_clave.setText("");
+
     }//GEN-LAST:event_jPasswordFieldRegister_claveActionPerformed
+
+    private void jPasswordFieldLogin_claveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPasswordFieldLogin_claveMouseClicked
+        // TODO add your handling code here:
+        jPasswordFieldLogin_clave.setText("");
+    }//GEN-LAST:event_jPasswordFieldLogin_claveMouseClicked
+
+    private void jPasswordFieldRegister_claveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPasswordFieldRegister_claveMouseClicked
+        // TODO add your handling code here:
+        jPasswordFieldRegister_clave.setText("");
+    }//GEN-LAST:event_jPasswordFieldRegister_claveMouseClicked
+
+    private void jButtonIniciarseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonIniciarseMouseClicked
+        // TODO add your handling code here:
+
+
+    }//GEN-LAST:event_jButtonIniciarseMouseClicked
 
     /**
      * @param args the command line arguments
