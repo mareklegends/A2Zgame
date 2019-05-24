@@ -45,22 +45,17 @@ public class AdminPArchivo extends javax.swing.JFrame {
                 System.out.println("El formato del archivo es valido >> " + abre.getName());
                 bd.conexiones.nuevasPreguntasArchivo(abre);
                 JOptionPane.showMessageDialog(null, "Las preguntas se añadieron correctamente");
-                Admin a = new Admin();
-                a.setVisible(true);
-                this.dispose();
             } else {
                 System.out.println("El formato del archivo no es valido >> " + abre.getName());
-                JOptionPane.showMessageDialog(null, "El formato del archivo no es valido");
-                Admin a = new Admin();
-                a.setVisible(true);
-                this.dispose();
+                JOptionPane.showMessageDialog(null, "El formato del archivo no es valido");             
             }
         } catch (Exception e) {
-            System.out.println("Error al leer el archivo");
-            Admin a = new Admin();
-            a.setVisible(true);
-            this.dispose();
+            System.out.println("Error al leer el archivo");          
 
+        }finally{
+               Admin a = new Admin();
+                a.setVisible(true);
+                this.dispose();
         }
 
     }
