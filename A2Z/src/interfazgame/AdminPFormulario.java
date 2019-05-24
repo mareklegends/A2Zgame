@@ -4,8 +4,9 @@
  * and open the template in the editor.
  */
 
-package a2z;
+package interfazgame;
 
+import interfazgame.Admin;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 

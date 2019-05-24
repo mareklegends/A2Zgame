@@ -1,6 +1,8 @@
 
-package a2z;
+package interfazgame;
 
+import interfazgame.Dashboard;
+import a2z.Jugadores;
 import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;

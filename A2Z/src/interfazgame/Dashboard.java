@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package a2z;
+package interfazgame;
 
+import a2z.Jugadores;
 import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;

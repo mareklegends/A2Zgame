@@ -3,8 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package a2z;
+package interfazgame;
 
+import interfazgame.PFallo;
+import interfazgame.PAcertada;
+import a2z.Preguntas;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.logging.Level;
