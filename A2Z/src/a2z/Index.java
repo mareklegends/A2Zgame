@@ -85,6 +85,11 @@ public class Index extends javax.swing.JFrame {
         jLabel1.setText("R E G I S T E R");
 
         jPasswordFieldLogin_clave.setText("jPasswordField1");
+        jPasswordFieldLogin_clave.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jPasswordFieldLogin_claveFocusGained(evt);
+            }
+        });
         jPasswordFieldLogin_clave.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jPasswordFieldLogin_claveMouseClicked(evt);
@@ -117,6 +122,11 @@ public class Index extends javax.swing.JFrame {
         jLabel5.setText("Password");
 
         jPasswordFieldRegister_clave.setText("jPasswordField1");
+        jPasswordFieldRegister_clave.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jPasswordFieldRegister_claveFocusGained(evt);
+            }
+        });
         jPasswordFieldRegister_clave.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jPasswordFieldRegister_claveMouseClicked(evt);
@@ -343,6 +353,16 @@ public class Index extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_jButtonIniciarseMouseClicked
+
+    private void jPasswordFieldLogin_claveFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jPasswordFieldLogin_claveFocusGained
+        // TODO add your handling code here:
+           jPasswordFieldLogin_clave.setText("");
+    }//GEN-LAST:event_jPasswordFieldLogin_claveFocusGained
+
+    private void jPasswordFieldRegister_claveFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jPasswordFieldRegister_claveFocusGained
+        // TODO add your handling code here:
+         jPasswordFieldRegister_clave.setText("");
+    }//GEN-LAST:event_jPasswordFieldRegister_claveFocusGained
 
     /**
      * @param args the command line arguments
