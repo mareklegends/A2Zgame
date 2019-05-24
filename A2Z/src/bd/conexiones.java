@@ -26,6 +26,11 @@ import java.util.logging.Logger;
  */
 public class conexiones {
 
+    /**
+     * Transfoma un string a date
+     * @param fecha
+     * @return date
+     */
     public static Date ParseFecha(String fecha) {
         SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
         Date fechaDate = null;
@@ -37,6 +42,11 @@ public class conexiones {
         return fechaDate;
     }
 
+    /**
+     * Mediante una variable se obtiene la informacion de un usuario
+     * @param cod_usuario
+     * @return ArrayList de jugadores
+     */
     public static ArrayList<Jugadores> jugadorInfo(int cod_usuario) {
         ArrayList<Jugadores> vJugadorInfo = new ArrayList();
         Jugadores j2 = null;
@@ -80,6 +90,10 @@ public class conexiones {
         return vJugadorInfo;
     }
 
+    /**
+     * Muestra el top de jugadores con orden descendentes de los puntos que tienen
+     * @return ArrayList de jugadores
+     */
     public static ArrayList<Jugadores> topJugadores() {
         ArrayList<Jugadores> vJugadoresNOADMIN = new ArrayList();
         Jugadores j = null;
@@ -122,6 +136,10 @@ public class conexiones {
         return vJugadoresNOADMIN;
     }
 
+    /**
+     * Muestra las categorias de las preguntas
+     * @return ArrayList de las categorias de las preguntas
+     */
     public static ArrayList<String> verCategorias() {
         ArrayList<String> vCategorias = new ArrayList();
         Jugadores j = null;
@@ -163,6 +181,12 @@ public class conexiones {
         return vCategorias;
     }
 
+    /**
+     * Mediante dos variables una de usuario y otra de cat, busca una pregunta pregunta de esa categoria que no haya respondido correctamente
+     * @param usario
+     * @param cat
+     * @return ArrayList de preguntas con una pregunta que el usario no ha acertado de la categoria precisa
+     */
     public static ArrayList<Preguntas> jugarPregunta(int usario, String cat) {
         ArrayList<Preguntas> vPregunta = new ArrayList();
         Preguntas p = null;
@@ -208,10 +232,12 @@ public class conexiones {
         return vPregunta;
     }
 
-    public static void nuevaPreguntaFormularios() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   
 
+    /**
+     * Muestra la cantidad de usuarios que hay registrados en A2Z sin ser admin
+     * @return devuelve una variable int con el numero de usuarios que no son admin
+     */
     public static int contadorUsuarios() {
         int numero = 0;
         Connection conn = null;
@@ -250,6 +276,10 @@ public class conexiones {
         return numero;
     }
 
+    /**
+     * Muestra la cantidad de preguntas que tiene A2Z en sus bases de datos
+     * @return devuelve una variable int del numero de preguntas que hay en la base de datos
+     */
     public static int contadorPreguntas() {
         int numero = 0;
         Connection conn = null;
@@ -289,6 +319,10 @@ public class conexiones {
 
     }
 
+    /**
+     * Aumenta las vidas y los puntos de un usario mediante su codigo de usario cuando este ha respondido un pregunta bien
+     * @param cod_usuario
+     */
     public static void darpuntosyvidas(int cod_usuario) {
         Connection conn = null;
         int puntos = 0;
@@ -332,6 +366,10 @@ public class conexiones {
         }
     }
 
+    /**
+     * Quita vidas al usario mediante su codigo de usario cuando responde una pregunta mal y si no tiene vidas para quitar se le pone 1 vida para que pueda seguir jugando
+     * @param cod_usuario
+     */
     public static void quitarvidas(int cod_usuario) {
         Connection conn = null;
         int vidas = 0;
@@ -381,6 +419,11 @@ public class conexiones {
         }
     }
 
+    /**
+     * Añade en la base de datos que un usario ha acertado una pregunta y esta pregunta a este usario no se le vuelve a repetir
+     * @param cod_usuario
+     * @param cod_pregunta
+     */
     public static void preguntaCorrecta(int cod_usuario, int cod_pregunta) {
         Connection conn = null;
         try {
@@ -413,6 +456,13 @@ public class conexiones {
         }
     }
 
+    /**
+     * Registra el usario en la aplicacion de A2Z
+     * @param nombre
+     * @param pass
+     * @param fecha
+     * @return devuelve el codigo del usuario registrado
+     */
     public static int regitrarse(String nombre, String pass, String fecha) {
         int cod_user = 0;
         Connection conn = null;
@@ -455,6 +505,12 @@ public class conexiones {
         return cod_user;
     }
 
+    /**
+     * Esta funcion ayuda a A2Z depende del codigo que devuelve te mando para el juego o para el panel de administracion
+     * @param nombre
+     * @param pass
+     * @return ArrayList de HelpLogin
+     */
     public static ArrayList<HelpLogin> iniciarse(String nombre, String pass) {
         ArrayList<HelpLogin> vLogin = new ArrayList();
         HelpLogin hp = null;
@@ -495,6 +551,15 @@ public class conexiones {
         return vLogin;
     }
 
+    /**
+     * Añade preguntas a la base de datos de A2Z
+     * @param pregunta
+     * @param r1
+     * @param r2
+     * @param r3
+     * @param codrespuestabuena
+     * @param codcat
+     */
     public static void ponerPreguntas(String pregunta, String r1, String r2, String r3, int codrespuestabuena, int codcat) {
         Connection conn = null;
         try {
@@ -531,6 +596,10 @@ public class conexiones {
 
     }
 
+    /**
+     * Leer las preguntas de una archivo y las añade a la base de datos de A2Z
+     * @param f
+     */
     public static void nuevasPreguntasArchivo(File f) {
 
         FileReader fr = null;

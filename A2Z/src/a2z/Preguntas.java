@@ -1,13 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package a2z;
 
 /**
- *
+ * Clase para guardar la informacion de las preguntas
  * @author marek
+ * @version 26
  */
 public class Preguntas {
     private int codpregunta;
