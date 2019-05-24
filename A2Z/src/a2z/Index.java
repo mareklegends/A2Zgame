@@ -268,13 +268,12 @@ public class Index extends javax.swing.JFrame {
     private void jButtonIniciarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIniciarseActionPerformed
         // TODO add your handling code here:
         int admin = 0;
-        String nombre = "";
-        String pass = "";
+       
 
-        nombre = jTextFieldLogin_usuario.getText();
-        pass = new String(jPasswordFieldLogin_clave.getPassword());
+        String nombre = jTextFieldLogin_usuario.getText();
+        String pass = new String(jPasswordFieldLogin_clave.getPassword());
         
-        if (nombre.equalsIgnoreCase(" ") && pass.equalsIgnoreCase(" ")) {
+        if (nombre.equalsIgnoreCase("") || pass.equalsIgnoreCase("")) {
             JOptionPane.showMessageDialog(null, "Rellene los campos del formulario");
         } else {
 
@@ -306,12 +305,17 @@ public class Index extends javax.swing.JFrame {
         String nombre = jTextFieldRegister_usuario.getText();
         String pass = new String(jPasswordFieldRegister_clave.getPassword());
         String fecha = jTextFieldRegister_fecha.getText();
+        
+          if (nombre.equalsIgnoreCase("") || pass.equalsIgnoreCase("") || fecha.equalsIgnoreCase("")) {
+            JOptionPane.showMessageDialog(null, "Rellene los campos del formulario");
+        } else {
+        
         int id_user = bd.conexiones.regitrarse(nombre, pass, fecha);
 
         Dashboard d = new Dashboard(id_user);
         d.setVisible(true);
         this.dispose();
-
+  }  
     }//GEN-LAST:event_jButtonRegister_goActionPerformed
 
     private void jPasswordFieldLogin_claveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordFieldLogin_claveActionPerformed
