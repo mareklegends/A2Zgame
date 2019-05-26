@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package interfazgame;
 
 import interfazgame.PFallo;
@@ -16,8 +11,9 @@ import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author alumno
+ * Ventana que muestra la pregunta
+ * @author marcos
+ * @version final
  */
 public class Pregunta extends javax.swing.JFrame {
 

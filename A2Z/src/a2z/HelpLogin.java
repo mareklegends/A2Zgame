@@ -1,13 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package a2z;
 
 /**
- *
- * @author marek
+ * Clase de java para la gestion si un usario es admin o no
+ * @author marcos
  */
 public class HelpLogin {
     
@@ -15,7 +11,7 @@ public class HelpLogin {
     private int admin;
 
     /**
-     *
+     * Solo se utiliza este constructor para mandar a un usario a una venta o a otra
      * @param coduser
      * @param admin
      */
@@ -25,15 +21,15 @@ public class HelpLogin {
     }
 
     /**
-     *
-     * @return
+     * Obtener el codigo de usario
+     * @return devuelve una variable int con el codigo de usario
      */
     public int getCoduser() {
         return coduser;
     }
 
     /**
-     *
+     * Añadir el codigo de usario
      * @param coduser
      */
     public void setCoduser(int coduser) {
@@ -41,15 +37,15 @@ public class HelpLogin {
     }
 
     /**
-     *
-     * @return
+     * Obtener si un usario es admin o no
+     * @return devuelve una variable int que dice si es admin o no
      */
     public int getAdmin() {
         return admin;
     }
 
     /**
-     *
+     * Añadir si un suario es admin o noi
      * @param admin
      */
     public void setAdmin(int admin) {

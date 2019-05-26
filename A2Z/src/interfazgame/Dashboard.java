@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package interfazgame;
 
 import a2z.Jugadores;
@@ -11,8 +6,10 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
+ * Ventana del perfil del usario iniciado
  *
- * @author marek
+ * @author marcos
+ * @version final
  */
 public class Dashboard extends javax.swing.JFrame {
 

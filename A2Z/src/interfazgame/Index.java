@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package interfazgame;
 
 import interfazgame.Dashboard;
@@ -13,8 +8,9 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author marek
+ * Ventana principal al iniciar la aplicación
+ * @author marcos
+ * @version final
  */
 public class Index extends javax.swing.JFrame {
 
@@ -22,9 +18,7 @@ public class Index extends javax.swing.JFrame {
 
     private int id_user = 0;
 
-    /**
-     * Creates new form Index
-     */
+  
     public Index() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -236,7 +230,7 @@ public class Index extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jPasswordFieldRegister_clave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel6)
                                     .addComponent(jLabel7))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)

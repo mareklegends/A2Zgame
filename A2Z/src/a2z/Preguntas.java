@@ -4,7 +4,7 @@ package a2z;
 /**
  * Clase para guardar la informacion de las preguntas
  * @author marek
- * @version 26
+ * @version final
  */
 public class Preguntas {
     private int codpregunta;
@@ -16,7 +16,7 @@ public class Preguntas {
     private String cat;
 
     /**
-     *
+     * Constructor para añadir preguntas
      * @param codpregunta
      * @param pregunta
      * @param p1
@@ -36,15 +36,15 @@ public class Preguntas {
     }
 
     /**
-     *
-     * @return
+     * Devuelve el codigo de la pregunta
+     * @return int con el codigo de la pregunta
      */
     public int getCodpregunta() {
         return codpregunta;
     }
 
     /**
-     *
+     * Cambiar el codigo de la pregunta
      * @param codpregunta
      */
     public void setCodpregunta(int codpregunta) {
@@ -52,15 +52,15 @@ public class Preguntas {
     }
 
     /**
-     *
-     * @return
+     * Devuelve la pregunta
+     * @return string con la pregunta
      */
     public String getPregunta() {
         return pregunta;
     }
 
     /**
-     *
+     * Cambiar la pregunta
      * @param pregunta
      */
     public void setPregunta(String pregunta) {
@@ -68,15 +68,15 @@ public class Preguntas {
     }
 
     /**
-     *
-     * @return
+     * Devuelve la respuesta 1 de la pregunta
+     * @return string con la respuesta 1
      */
     public String getP1() {
         return p1;
     }
 
     /**
-     *
+     * Cambiar la respuesta 1
      * @param p1
      */
     public void setP1(String p1) {
@@ -84,15 +84,15 @@ public class Preguntas {
     }
 
     /**
-     *
-     * @return
+     * Devuelve la respuesta 2 de la pregunta
+     * @return string con la respuesta 2
      */
     public String getP2() {
         return p2;
     }
 
     /**
-     *
+     * Cambiar la respuesta 2
      * @param p2
      */
     public void setP2(String p2) {
@@ -100,15 +100,15 @@ public class Preguntas {
     }
 
     /**
-     *
-     * @return
+     * Devuelve la respuesta 3 de la pregunta
+     * @return string con la respuesta 3
      */
     public String getP3() {
         return p3;
     }
 
     /**
-     *
+     * Cambiar la respuesta 3
      * @param p3
      */
     public void setP3(String p3) {
@@ -116,15 +116,15 @@ public class Preguntas {
     }
 
     /**
-     *
-     * @return
+     * Devuelve el numero de la respuesta correcta de la pregunta
+     * @return int con el numero de la respuesta correcta
      */
     public int getPbuena() {
         return pbuena;
     }
 
     /**
-     *
+     * Cambiar cual es la respuesta buena de la pregunta
      * @param pbuena
      */
     public void setPbuena(int pbuena) {
@@ -132,15 +132,15 @@ public class Preguntas {
     }
 
     /**
-     *
-     * @return
+     * Devuelve la categoria
+     * @return string de cat
      */
     public String getCat() {
         return cat;
     }
 
     /**
-     *
+     * Cambiar la categorias de una pregunta
      * @param cat
      */
     public void setCat(String cat) {

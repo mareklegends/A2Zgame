@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package interfazgame;
 
 import static bd.conexiones.contadorPreguntas;
@@ -14,16 +9,16 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author marek
+ * Ventana principal del adinistrador
+ * @author marcos
+ * @version final
  */
 public class Admin extends javax.swing.JFrame {
 
+    // ArrayList con las categorias de las preguntas
     private ArrayList<String> vCategorias = bd.conexiones.verCategorias();
 
-    /**
-     * Creates new form Admin
-     */
+  
     public Admin() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -182,9 +177,6 @@ public class Admin extends javax.swing.JFrame {
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
-        // AdminPArchivo apa = new AdminPArchivo();
-        //apa.setVisible(true);
-        //this.dispose();
         JFileChooser jFileChooser1 = new JFileChooser();
 
         String datos = "Aviso, las categorias de la preguntas van con un código no con el nombre de la categoría \n";

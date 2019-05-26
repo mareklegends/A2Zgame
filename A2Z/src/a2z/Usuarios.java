@@ -1,15 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package a2z;
 
 import java.util.Date;
 
 /**
- *
- * @author marek
+ * Clase de los usuarios que no son admin
+ * @author marcos
+ * @version final
  */
 public class Usuarios {
     private int coduser;
@@ -17,7 +14,7 @@ public class Usuarios {
     private Date fecha;
 
     /**
-     *
+     * Contructor para añadir usuarios que no son admin
      * @param coduser
      * @param nombre
      * @param fecha
@@ -29,15 +26,15 @@ public class Usuarios {
     }
 
     /**
-     *
-     * @return
+     * Devuelve el coodigo del usario que no es admin
+     * @return int con el codigo de usario
      */
     public int getCoduser() {
         return coduser;
     }
 
     /**
-     *
+     * Cambiar el codigo del usario que no es admin
      * @param coduser
      */
     public void setCoduser(int coduser) {
@@ -45,15 +42,15 @@ public class Usuarios {
     }
 
     /**
-     *
-     * @return
+     * Devuelve el nombre del usaruario que no es admin
+     * @return un string con el nombre del usuario
      */
     public String getNombre() {
         return nombre;
     }
 
     /**
-     *
+     * Cambiar el nombre del usuario que no es admin
      * @param nombre
      */
     public void setNombre(String nombre) {
@@ -61,15 +58,15 @@ public class Usuarios {
     }
 
     /**
-     *
-     * @return
+     * Devuelve la fecha del usario que no es admin
+     * @return date con la fecha
      */
     public Date getFecha() {
         return fecha;
     }
 
     /**
-     *
+     * Cambiar la fecha del usario que no es admin
      * @param fecha
      */
     public void setFecha(Date fecha) {

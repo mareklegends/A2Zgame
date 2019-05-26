@@ -1,20 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package a2z;
 
 /**
- *
- * @author marek
+ * Clase para decir que usarios y que preguntas tienen acertadas
+ * @author marcos
+ * @version final
  */
 public class Juego {
     private Usuarios u;
     private Preguntas p;
 
     /**
-     *
+     * Constructor con un objeto de usarios y otro de preguntas
      * @param u
      * @param p
      */
@@ -24,15 +21,15 @@ public class Juego {
     }
 
     /**
-     *
-     * @return
+     * Devuelve un objeto de usuarios de la clase juego
+     * @return devuelve un objeto de usario
      */
     public Usuarios getU() {
         return new Usuarios(u.getCoduser(), u.getNombre(), u.getFecha());
     }
 
     /**
-     *
+     * Añade un objeto de usarios a la clase juego
      * @param u
      */
     public void setU(Usuarios u) {
@@ -40,15 +37,15 @@ public class Juego {
     }
 
     /**
-     *
-     * @return
+     * Devuelve un objeto de preguntas de la clase juego
+     * @return devuelve un objeto de preguntas
      */
     public Preguntas getP() {
         return new Preguntas(p.getCodpregunta(),  p.getPregunta(), p.getP1(), p.getP2(), p.getP3(), p.getPbuena(), p.getCat());
     }
 
     /**
-     *
+     * Añade un objeto de preguntas a la clase juego
      * @param p
      */
     public void setP(Preguntas p) {

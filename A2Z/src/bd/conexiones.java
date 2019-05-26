@@ -21,8 +21,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
- * @author marek
+ * Clase para todoas las consexiones que tiene A2Z con la base de datos
+ * @author marcos
+ * @version final
  */
 public class conexiones {
 

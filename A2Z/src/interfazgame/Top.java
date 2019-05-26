@@ -52,6 +52,10 @@ public class Top extends javax.swing.JFrame {
 
     }
 
+    /**
+     *
+     * @param iduser
+     */
     public Top(int iduser) {
       initComponents();
       cod_user=iduser;

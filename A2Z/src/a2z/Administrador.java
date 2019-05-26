@@ -1,21 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package a2z;
 
 import java.util.Date;
 
 /**
- *
+ * Clase para los usuarios que son administrador de A2Z
  * @author marek
+ * version final
  */
 public final class Administrador extends Usuarios{
     private int rango;
 
     /**
-     *
+     * Constructor para agregar administradores
      * @param rango
      * @param coduser
      * @param nombre
@@ -27,15 +23,15 @@ public final class Administrador extends Usuarios{
     }
 
     /**
-     *
-     * @return
+     * Devuelve el rango del administrador
+     * @return devuelve una variable int con el rango del administrador
      */
     public int getRango() {
         return rango;
     }
 
     /**
-     *
+     * Funcion para poder cambiar el rango a un administrador
      * @param rango
      */
     public void setRango(int rango) {

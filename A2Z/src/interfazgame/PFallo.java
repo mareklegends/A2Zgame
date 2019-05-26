@@ -1,16 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package interfazgame;
 
 import interfazgame.Dashboard;
 import java.awt.Color;
 
 /**
- *
- * @author marek
+ * Ventana de pregunta fallida
+ * @author marcos
+ * @version final
  */
 public class PFallo extends javax.swing.JFrame {
 private int id_user = 0;
