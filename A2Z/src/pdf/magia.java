@@ -23,7 +23,7 @@ public class magia {
     //el video de yt para el tutorial
     
         public static String pdfReglas() {
-        String nombrepdf = "comojugar.pdf";
+        String nombrepdf = "comojugar";
         return nombrepdf;
     }
     
@@ -33,6 +33,11 @@ public class magia {
         String nombrepdf = "topjugadoresA2Z";
         File f = new File(nombrepdf + ".pdf");
         FileOutputStream archivo = null;
+        
+        if (f.exists()) {
+            f.delete();
+        }
+        
         try {
             archivo = new FileOutputStream(f);
         } catch (FileNotFoundException ex) {
