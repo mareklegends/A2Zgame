@@ -183,7 +183,9 @@ public class Top extends javax.swing.JFrame {
 
     private void jButtonSacarpdfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSacarpdfActionPerformed
         // TODO add your handling code here:
-        //generar pdf top jugadores
+       String topj = pdf.magia.crearPDFtopjugadores();
+       pdf.magia.abrirPDF(topj);
+       
     }//GEN-LAST:event_jButtonSacarpdfActionPerformed
 
     /**
