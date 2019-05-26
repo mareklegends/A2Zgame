@@ -359,7 +359,7 @@ public class conexiones {
             }
 
             PreparedStatement ps2 = (PreparedStatement) conn.prepareStatement("UPDATE usuarios SET usuarios.puntos=?, usuarios.vidas=? WHERE usuarios.codusuarios=?");
-            ps2.setInt(1, (puntos + 10));
+            ps2.setInt(1, (puntos + 100));
             ps2.setInt(2, (vidas + 1));
             ps2.setInt(3, cod_usuario);
             ps2.executeUpdate();
