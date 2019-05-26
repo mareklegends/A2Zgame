@@ -21,6 +21,14 @@ public class magia {
 
     // https://www.youtube.com/watch?v=DezkSACVG_w
     //el video de yt para el tutorial
+    
+        public static String pdfReglas() {
+        String nombrepdf = "comojugar.pdf";
+        return nombrepdf;
+    }
+    
+    
+    
     public static String crearPDFtopjugadores() {
         String nombrepdf = "topjugadoresA2Z";
         File f = new File(nombrepdf + ".pdf");

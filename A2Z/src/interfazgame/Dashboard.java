@@ -333,7 +333,7 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void jButtonvertopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonvertopActionPerformed
         // TODO add your handling code here:
-        Top t = new Top();
+        Top t = new Top(iduser);
         t.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButtonvertopActionPerformed
