@@ -21,6 +21,7 @@ public class Index extends javax.swing.JFrame {
   
     public Index() {
         initComponents();
+        this.setResizable(false);
         this.setLocationRelativeTo(null);
         this.setTitle("A2Z Game");
         this.getContentPane().setBackground(Color.decode("#1f2029"));

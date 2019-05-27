@@ -28,6 +28,7 @@ public final class Ruleta extends javax.swing.JFrame {
     public Ruleta(int iduser) {
     initComponents();
     id_user = iduser;
+    this.setResizable(false);
         this.setLocationRelativeTo(null);
            jButtonJugar.setEnabled(false);
         this.setTitle("A2Z Game");
@@ -51,34 +52,7 @@ public final class Ruleta extends javax.swing.JFrame {
    }
   
 
-    /**
-     * Creates new form Ruleta
-     */
-  /*  public Ruleta() {
-        initComponents();
-        this.setLocationRelativeTo(null);
-           jButtonJugar.setEnabled(false);
-        this.setTitle("A2Z Game");
-        this.getContentPane().setBackground(Color.decode("#1f2029"));
-        jLabel3.setForeground(Color.decode("#fafafa"));
-        jLabel2.setForeground(Color.decode("#fafafa"));
-        jLabel2.setText("-Calculadon la categoria-");
-
-        jButtonAtras.setForeground(Color.BLACK);
-        jButtonAtras.setBackground(Color.WHITE);
-        jButtonJugar.setForeground(Color.BLACK);
-        jButtonJugar.setBackground(Color.WHITE);
-
-        modeloLista = new DefaultListModel();
-        jList1.setModel(modeloLista);
-        jList1.setDragEnabled(false);
-        for (int i = 0; i < vCategorias.size(); i++) {
-            modeloLista.addElement(vCategorias.get(i).toString());
-
-        }
-
-    }
-*/
+    
     private void dormir() {
         try {
             Thread.sleep(1200);

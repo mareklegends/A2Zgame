@@ -12,6 +12,7 @@ import javax.swing.JOptionPane;
 
 /**
  * Ventana que muestra la pregunta
+ *
  * @author marcos
  * @version final
  */
@@ -20,13 +21,14 @@ public class Pregunta extends javax.swing.JFrame {
     private ArrayList<Preguntas> vPregunta = null;
     private int npreguntabuena = 0;
     private int iduser = 0;
-    private int codpregunta=0;
+    private int codpregunta = 0;
 
     /**
      * Creates new form Pregunta
      */
     public Pregunta() {
         initComponents();
+        this.setResizable(false);
         this.setLocationRelativeTo(null);
         this.setTitle("A2Z Game");
         this.getContentPane().setBackground(Color.decode("#1f2029"));
@@ -54,18 +56,18 @@ public class Pregunta extends javax.swing.JFrame {
     public Pregunta(int id_user, String ncategoria) {
         initComponents();
         iduser = id_user;
-
+        this.setResizable(false);
         vPregunta = bd.conexiones.jugarPregunta(id_user, ncategoria);
 
-            for (int i = 0; i < vPregunta.size(); i++) {
-                codpregunta = vPregunta.get(i).getCodpregunta();
-                jTextArea1.setText(vPregunta.get(i).getPregunta());
-                jButtonRespuesta1.setText(vPregunta.get(i).getP1());
-                jButtonRespuesta2.setText(vPregunta.get(i).getP2());
-                jButtonRespuesta3.setText(vPregunta.get(i).getP3());
-                npreguntabuena = vPregunta.get(i).getPbuena();
-                break;
-            }
+        for (int i = 0; i < vPregunta.size(); i++) {
+            codpregunta = vPregunta.get(i).getCodpregunta();
+            jTextArea1.setText(vPregunta.get(i).getPregunta());
+            jButtonRespuesta1.setText(vPregunta.get(i).getP1());
+            jButtonRespuesta2.setText(vPregunta.get(i).getP2());
+            jButtonRespuesta3.setText(vPregunta.get(i).getP3());
+            npreguntabuena = vPregunta.get(i).getPbuena();
+            break;
+        }
 
         this.setLocationRelativeTo(null);
         this.setTitle("A2Z Game");
@@ -84,9 +86,8 @@ public class Pregunta extends javax.swing.JFrame {
         jTextArea1.setLineWrap(true);
         jTextArea1.setEditable(false);
 
-    }  
+    }
 
-   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -198,7 +199,7 @@ public class Pregunta extends javax.swing.JFrame {
             pa.setVisible(true);
             this.dispose();
         } else {
-             PFallo pf = new PFallo(iduser);
+            PFallo pf = new PFallo(iduser);
             pf.setVisible(true);
             this.dispose();
         }

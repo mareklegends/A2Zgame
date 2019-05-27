@@ -23,7 +23,7 @@ public class Dashboard extends javax.swing.JFrame {
      */
     public Dashboard() {
         initComponents();
-
+        this.setResizable(false);
         this.setLocationRelativeTo(null);
         this.setTitle("A2Z Game");
         this.getContentPane().setBackground(Color.decode("#1f2029"));
@@ -111,6 +111,7 @@ public class Dashboard extends javax.swing.JFrame {
     public Dashboard(int id_user) {
         initComponents();
         iduser = id_user;
+        this.setResizable(false);
         this.setLocationRelativeTo(null);
         this.setTitle("A2Z Game");
         this.getContentPane().setBackground(Color.decode("#1f2029"));

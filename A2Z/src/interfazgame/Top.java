@@ -23,6 +23,7 @@ public class Top extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setTitle("A2Z Game");
+        this.setResizable(false);
         this.getContentPane().setBackground(Color.decode("#1f2029"));
         jLabel1.setForeground(Color.decode("#fafafa"));
         jLabel1.setForeground(Color.decode("#fafafa"));
@@ -57,8 +58,9 @@ public class Top extends javax.swing.JFrame {
      * @param iduser
      */
     public Top(int iduser) {
-      initComponents();
-      cod_user=iduser;
+        initComponents();
+        cod_user = iduser;
+        this.setResizable(false);
         this.setLocationRelativeTo(null);
         this.setTitle("A2Z Game");
         this.getContentPane().setBackground(Color.decode("#1f2029"));
@@ -187,9 +189,9 @@ public class Top extends javax.swing.JFrame {
 
     private void jButtonSacarpdfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSacarpdfActionPerformed
         // TODO add your handling code here:
-       String topj = pdf.magia.crearPDFtopjugadores();
-       pdf.magia.abrirPDF(topj);
-       
+        String topj = pdf.magia.crearPDFtopjugadores();
+        pdf.magia.abrirPDF(topj);
+
     }//GEN-LAST:event_jButtonSacarpdfActionPerformed
 
     /**

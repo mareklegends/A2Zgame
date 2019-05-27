@@ -17,6 +17,7 @@ private int id_user = 0;
         initComponents();
         this.setLocationRelativeTo(null);
         this.setTitle("A2Z Game");
+        this.setResizable(false);
         this.getContentPane().setBackground(Color.decode("#f44141"));
     }
 
@@ -28,6 +29,7 @@ private int id_user = 0;
         
           initComponents();
           id_user = iduser;
+          this.setResizable(false);
         this.setLocationRelativeTo(null);
         this.setTitle("A2Z Game");
         this.getContentPane().setBackground(Color.decode("#f44141"));

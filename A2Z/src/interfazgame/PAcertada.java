@@ -19,6 +19,7 @@ public class PAcertada extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setTitle("A2Z Game");
+        this.setResizable(false);
         this.getContentPane().setBackground(Color.decode("#42f471"));
     }
 
@@ -31,6 +32,7 @@ public class PAcertada extends javax.swing.JFrame {
         
         initComponents();
         id_user = iduser;
+        this.setResizable(false);
         this.setLocationRelativeTo(null);
         this.setTitle("A2Z Game");
         this.getContentPane().setBackground(Color.decode("#42f471"));

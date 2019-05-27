@@ -22,6 +22,7 @@ public class Admin extends javax.swing.JFrame {
     public Admin() {
         initComponents();
         this.setLocationRelativeTo(null);
+        this.setResizable(false);
         this.setTitle("A2Z Game");
         this.getContentPane().setBackground(Color.decode("#1f2029"));
         jLabel1.setForeground(Color.decode("#fafafa"));
